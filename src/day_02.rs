@@ -104,8 +104,8 @@ pub mod day_02 {
         }
     }
 
-    fn get_total_score<F>(encrypted_input: String, decrypt_player_move: F) -> u32  where 
-        F: Fn(&EncryptedOpponentMove, &EncryptedPlayerMove) -> Move {
+    fn get_total_score<F>(encrypted_input: String, decrypt_player_move: F) -> u32  
+        where F: Fn(&EncryptedOpponentMove, &EncryptedPlayerMove) -> Move {
         
         encrypted_input
             .lines()
