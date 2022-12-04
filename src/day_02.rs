@@ -110,7 +110,7 @@ pub mod day_02 {
             .lines()
             .map(|line| line.split(' ').collect::<Vec<_>>())
             .map(|move_pair| (EncryptedOpponentMove::from_str(move_pair[0]).unwrap(), 
-                            EncryptedPlayerMove::from_str(move_pair[1]).unwrap()))
+                              EncryptedPlayerMove::from_str(move_pair[1]).unwrap()))
             .map(|move_pair| (move_pair.0.decrypt(), decrypt_player_move(&move_pair.0, &move_pair.1)))
             .map(|move_pair| {
                 let opponent_move = move_pair.0;
