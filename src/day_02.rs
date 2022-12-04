@@ -118,8 +118,8 @@ pub mod day_02 {
                 let player_move = move_pair.1;
 
                 match get_winning_move(&opponent_move, &player_move) {
-                    Some(winning_move) => return if winning_move == player_move { 6 + player_move as u32 } else { 0 + player_move as u32 },
-                    None => return 3 + player_move as u32
+                    Some(winning_move) => if winning_move == player_move { 6 + player_move as u32 } else { 0 + player_move as u32 },
+                    None => 3 + player_move as u32
                 }
         })
         .sum()
@@ -128,19 +128,19 @@ pub mod day_02 {
     fn get_winning_move(first: &Move, second: &Move) -> Option<Move> {
         match first {
             Move::Paper => match second {
-                Move::Paper => return None,
-                Move::Rock => return Some(Move::Paper),
-                Move::Scissors => return Some(Move::Scissors),
+                Move::Paper => None,
+                Move::Rock => Some(Move::Paper),
+                Move::Scissors => Some(Move::Scissors),
             },
             Move::Rock => match second {
-                Move::Paper => return Some(Move::Paper),
-                Move::Rock => return None,
-                Move::Scissors => return Some(Move::Rock),
+                Move::Paper => Some(Move::Paper),
+                Move::Rock => None,
+                Move::Scissors => Some(Move::Rock),
             },
             Move::Scissors => match second {
-                Move::Paper => return Some(Move::Scissors),
-                Move::Rock => return Some(Move::Rock),
-                Move::Scissors => return None,
+                Move::Paper => Some(Move::Scissors),
+                Move::Rock => Some(Move::Rock),
+                Move::Scissors => None,
             }
         }
     }
