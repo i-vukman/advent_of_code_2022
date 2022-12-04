@@ -150,19 +150,17 @@ pub mod day_02 {
 mod tests {
     use std::fs;
 
-    use super::day_02::{get_total_score_1, get_total_score_2};
-
     #[test]
     fn test_part_1_from_input() {
         let input = fs::read_to_string("input/day_02.txt").unwrap();
 
-        assert_eq!(get_total_score_1(input), 10595);
+        assert_eq!(super::day_02::get_total_score_1(input), 10595);
     }
 
     #[test]
     fn test_part_2_from_input() {
         let input = fs::read_to_string("input/day_02.txt").unwrap();
 
-        assert_eq!(get_total_score_2(input), 9541);
+        assert_eq!(super::day_02::get_total_score_2(input), 9541);
     }
 }
