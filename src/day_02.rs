@@ -1,60 +1,7 @@
 pub mod day_02 {
     use std::str::FromStr;
 
-    #[derive(PartialEq)]
-    enum Move {
-        Rock = 1,
-        Paper = 2,
-        Scissors = 3,
-    }
-
-    enum EncryptedOpponentMove {
-        A,
-        B,
-        C,
-    }
-
-    impl FromStr for EncryptedOpponentMove {
-        type Err = ();
-
-        fn from_str(s: &str) -> Result<Self, Self::Err> {
-            match s {
-                "A" => Ok(EncryptedOpponentMove::A),
-                "B" => Ok(EncryptedOpponentMove::B),
-                "C" => Ok(EncryptedOpponentMove::C),
-                _ => Err(())
-            }
-        }
-    }
-
-    impl EncryptedOpponentMove {
-        fn decrypt(&self) -> Move {
-            match self {
-              EncryptedOpponentMove::A => Move::Rock,
-              EncryptedOpponentMove::B => Move::Paper,
-              EncryptedOpponentMove::C => Move::Scissors,
-            }
-        }
-    }
-
-    enum EncryptedPlayerMove {
-        X,
-        Y,
-        Z,
-    }
-
-    impl FromStr for EncryptedPlayerMove {
-        type Err = ();
-
-        fn from_str(s: &str) -> Result<Self, Self::Err> {
-            match s {
-                "X" => Ok(EncryptedPlayerMove::X),
-                "Y" => Ok(EncryptedPlayerMove::Y),
-                "Z" => Ok(EncryptedPlayerMove::Z),
-                _ => Err(())
-            }
-        }
-    }
+    use crate::day_02_types::{prs_move::Move, encrypted_opponent_move::EncryptedOpponentMove, encrypted_player_move::EncryptedPlayerMove, move_pair::MovePair};
 
     pub fn get_total_score_1(encrypted_input: String) -> u32 {
         let decrypt_player_move = |_opponent_move: &EncryptedOpponentMove, player_move: &EncryptedPlayerMove| {
@@ -71,78 +18,26 @@ pub mod day_02 {
     pub fn get_total_score_2(encrypted_input: String) -> u32 {
         let decrypt_player_move = |opponent_move: &EncryptedOpponentMove, player_move: &EncryptedPlayerMove| {
             match player_move {
-                EncryptedPlayerMove::X => get_losing_counter_move(&opponent_move.decrypt()),
-                EncryptedPlayerMove::Y => get_draw_counter_move(&opponent_move.decrypt()),
-                EncryptedPlayerMove::Z => get_winning_counter_move(&opponent_move.decrypt()),
+                EncryptedPlayerMove::X => opponent_move.decrypt().get_losing_counter_move(),
+                EncryptedPlayerMove::Y => opponent_move.decrypt().get_draw_counter_move(),
+                EncryptedPlayerMove::Z => opponent_move.decrypt().get_winning_counter_move(),
             }
         };
 
         get_total_score(encrypted_input, decrypt_player_move)
     }
 
-    fn get_winning_counter_move(m: &Move) -> Move {
-        match m {
-            Move::Paper => Move::Scissors,
-            Move::Rock => Move::Paper,
-            Move::Scissors => Move::Rock,
-        }
-    }
-
-    fn get_draw_counter_move(m: &Move) -> Move {
-        match m {
-          Move::Paper => Move::Paper,
-          Move::Rock => Move::Rock,
-          Move::Scissors => Move::Scissors,
-        }
-    }
-
-    fn get_losing_counter_move(m: &Move) -> Move {
-        match m {
-            Move::Paper => Move::Rock,
-            Move::Rock => Move::Scissors,
-            Move::Scissors => Move::Paper
-        }
-    }
-
     fn get_total_score<F>(encrypted_input: String, decrypt_player_move: F) -> u32  
         where F: Fn(&EncryptedOpponentMove, &EncryptedPlayerMove) -> Move {
-        
+            
         encrypted_input
             .lines()
             .map(|line| line.split(' ').collect::<Vec<_>>())
             .map(|move_pair| (EncryptedOpponentMove::from_str(move_pair[0]).unwrap(), 
                               EncryptedPlayerMove::from_str(move_pair[1]).unwrap()))
-            .map(|move_pair| (move_pair.0.decrypt(), decrypt_player_move(&move_pair.0, &move_pair.1)))
-            .map(|move_pair| {
-                let opponent_move = move_pair.0;
-                let player_move = move_pair.1;
-
-                match get_winning_move(&opponent_move, &player_move) {
-                    Some(winning_move) => if winning_move == player_move { 6 + player_move as u32 } else { 0 + player_move as u32 },
-                    None => 3 + player_move as u32
-                }
-        })
+            .map(|move_pair| MovePair::new(decrypt_player_move(&move_pair.0, &move_pair.1), move_pair.0.decrypt()))
+            .map(|move_pair| move_pair.calculate_score())
         .sum()
-    }
-
-    fn get_winning_move(first: &Move, second: &Move) -> Option<Move> {
-        match first {
-            Move::Paper => match second {
-                Move::Paper => None,
-                Move::Rock => Some(Move::Paper),
-                Move::Scissors => Some(Move::Scissors),
-            },
-            Move::Rock => match second {
-                Move::Paper => Some(Move::Paper),
-                Move::Rock => None,
-                Move::Scissors => Some(Move::Rock),
-            },
-            Move::Scissors => match second {
-                Move::Paper => Some(Move::Scissors),
-                Move::Rock => Some(Move::Rock),
-                Move::Scissors => None,
-            }
-        }
     }
 }
 
