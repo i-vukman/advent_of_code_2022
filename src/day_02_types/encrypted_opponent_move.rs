@@ -21,7 +21,6 @@ impl FromStr for EncryptedOpponentMove {
   }
 }
 
-//TODO: define as function or strategy?
 impl EncryptedOpponentMove {
   pub fn decrypt(&self) -> Move {
       match self {
