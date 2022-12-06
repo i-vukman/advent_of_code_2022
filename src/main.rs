@@ -1,7 +1,7 @@
 pub mod day_01;
 pub mod day_03;
 
-mod day_02_types {
+mod day_02 {
     pub mod solution;
     pub mod prs_move;
     pub mod encrypted_opponent_move;
