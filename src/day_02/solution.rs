@@ -22,7 +22,7 @@ pub mod solution {
                               encrypted_player_move_factory(move_pair[1], EncryptedOpponentMove::from_str(move_pair[0]).unwrap())))
             .map(|move_pair| MovePair::new(move_pair.1.decrypt(), move_pair.0.decrypt()))
             .map(|move_pair| move_pair.calculate_score())
-        .sum()
+            .sum()
     }
 }
 
