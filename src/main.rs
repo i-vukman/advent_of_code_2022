@@ -1,12 +1,14 @@
 pub mod day_01;
-pub mod day_02;
 pub mod day_03;
 
 mod day_02_types {
+    pub mod solution;
     pub mod prs_move;
     pub mod encrypted_opponent_move;
     pub mod encrypted_player_move;
     pub mod move_pair;
+    pub mod move_based_encrypted_player_move;
+    pub mod outcume_based_encrypted_player_move;
 }
 
 fn main() {
