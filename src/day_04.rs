@@ -20,9 +20,9 @@ pub mod day_04 {
           .lines()
           .map(|l| l.split(',').collect::<Vec<_>>())
           .map(|assignment_pair| (assignment_pair[0].split('-').collect::<Vec<_>>(),
-                    assignment_pair[1].split('-').collect::<Vec<_>>()))
+                                  assignment_pair[1].split('-').collect::<Vec<_>>()))
           .map(|assignment_pair| (Assignment::new(assignment_pair.0[0].parse().unwrap(), assignment_pair.0[1].parse().unwrap()),
-                                 Assignment::new(assignment_pair.1[0].parse().unwrap(), assignment_pair.1[1].parse().unwrap())))
+                                  Assignment::new(assignment_pair.1[0].parse().unwrap(), assignment_pair.1[1].parse().unwrap())))
           .filter(|assignment_pair| assignment_pair.0.does_fully_owerlap_with(&assignment_pair.1))
           .count()
           .try_into()
