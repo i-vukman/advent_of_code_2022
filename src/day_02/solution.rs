@@ -1,4 +1,4 @@
-pub mod day_02 {
+pub mod solution {
     use std::str::FromStr;
 
     use crate::day_02::{encrypted_opponent_move::EncryptedOpponentMove, encrypted_player_move::EncryptedPlayerMove, move_pair::MovePair, move_based_encrypted_player_move::MoveBasedEncryptedPlayerMove, outcume_based_encrypted_player_move::OutcomeBasedEncryptedPlayerMove};
@@ -34,13 +34,13 @@ mod tests {
     fn test_part_1_from_input() {
         let input = fs::read_to_string("input/day_02.txt").unwrap();
 
-        assert_eq!(super::day_02::get_total_score_1(input), 10595);
+        assert_eq!(super::solution::get_total_score_1(input), 10595);
     }
 
     #[test]
     fn test_part_2_from_input() {
         let input = fs::read_to_string("input/day_02.txt").unwrap();
 
-        assert_eq!(super::day_02::get_total_score_2(input), 9541);
+        assert_eq!(super::solution::get_total_score_2(input), 9541);
     }
 }
