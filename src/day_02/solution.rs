@@ -1,7 +1,7 @@
 pub mod day_02 {
     use std::str::FromStr;
 
-    use crate::day_02_types::{encrypted_opponent_move::EncryptedOpponentMove, encrypted_player_move::EncryptedPlayerMove, move_pair::MovePair, move_based_encrypted_player_move::MoveBasedEncryptedPlayerMove, outcume_based_encrypted_player_move::OutcomeBasedEncryptedPlayerMove};
+    use crate::day_02::{encrypted_opponent_move::EncryptedOpponentMove, encrypted_player_move::EncryptedPlayerMove, move_pair::MovePair, move_based_encrypted_player_move::MoveBasedEncryptedPlayerMove, outcume_based_encrypted_player_move::OutcomeBasedEncryptedPlayerMove};
 
     pub fn get_total_score_1(encrypted_input: String) -> u32 {
         get_total_score(encrypted_input, |value, _encrypted_opponent_move| MoveBasedEncryptedPlayerMove::new(value))
