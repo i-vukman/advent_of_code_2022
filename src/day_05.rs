@@ -20,7 +20,7 @@ pub mod day_05 {
         fn get_top_line(&self) -> String {
             self.crate_stacks
                 .iter()
-                .map(|stack| stack.front().unwrap())
+                .map(|stack| stack.front().unwrap_or(&' '))
                 .collect()
         }
     }
