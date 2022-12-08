@@ -10,10 +10,22 @@ pub mod day_05 {
             Supplies { crate_stacks }
         }
 
-        fn move_crates(&mut self, amount: u32, from: usize, to: usize) {
+        fn move_crates_one_by_one(&mut self, amount: u32, from: usize, to: usize) {
             for _ in 0..amount {
                 let crate_from = self.crate_stacks[from - 1].pop_front().unwrap();
                 self.crate_stacks[to - 1].push_front(crate_from);
+            }
+        }
+
+        fn move_crates_together(&mut self, amount: u32, from: usize, to: usize) {
+            let mut temp = VecDeque::new();
+            for _ in 0..amount {
+                let crate_from = self.crate_stacks[from - 1].pop_front().unwrap();
+                temp.push_front(crate_from);
+            }
+            
+            while temp.front().is_some() {
+                self.crate_stacks[to - 1].push_front(temp.pop_front().unwrap())
             }
         }
 
@@ -25,21 +37,34 @@ pub mod day_05 {
         }
     }
 
-    pub fn solve(input: &str) -> String {
+    pub fn solve_1(input: &str) -> String {
         let mut supplies = parse_supplies(input);
 
-        let mut iterator = input.lines().peekable();
+        parse_and_run_commands(input, |amount, from, to| supplies.move_crates_one_by_one(amount, from, to));
 
+        supplies.get_top_line()
+    }
+
+    pub fn solve_2(input: &str) -> String {
+        let mut supplies = parse_supplies(input);
+
+        parse_and_run_commands(input, |amount, from, to| supplies.move_crates_together(amount, from, to));
+
+        supplies.get_top_line()
+    }
+
+    fn parse_and_run_commands<F>(input: &str, mut command: F) 
+        where F: FnMut(u32, usize, usize) -> ()  {
+          
+        let mut iterator = input.lines().peekable();
+        
         while !iterator.next().unwrap().is_empty() {}
 
         while !iterator.peek().is_none() {
             let line = iterator.next().unwrap();
             let move_input = line.split(' ').collect::<Vec<_>>();
-            let move_input = (move_input[1], move_input[3], move_input[5]);
-            supplies.move_crates(move_input.0.parse().unwrap(), move_input.1.parse().unwrap(), move_input.2.parse().unwrap());
+            command(move_input[1].parse().unwrap(), move_input[3].parse().unwrap(), move_input[5].parse().unwrap())
         }
-
-        supplies.get_top_line()
     }
 
     fn parse_supplies(input: &str) -> Supplies {
@@ -69,6 +94,12 @@ mod tests {
     #[test]
     pub fn test_part_1() {
         let input = fs::read_to_string("input/day_05.txt").unwrap_or(String::from(""));
-        assert_eq!(super::day_05::solve(&input), String::from("FCVRLMVQP"));
+        assert_eq!(super::day_05::solve_1(&input), String::from("FCVRLMVQP"));
+    }
+
+    #[test]
+    pub fn test_part_2() {
+        let input = fs::read_to_string("input/day_05.txt").unwrap_or(String::from(""));
+        assert_eq!(super::day_05::solve_2(&input), String::from ("RWLWGJGFD"));
     }
 }
