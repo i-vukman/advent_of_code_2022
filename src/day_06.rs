@@ -1,5 +1,5 @@
 pub mod day_06 {
-    use std::collections::{VecDeque, HashSet, HashMap};
+    use std::collections::{VecDeque, HashMap};
 
     struct Buffer {
         chars: VecDeque<char>,
@@ -36,9 +36,17 @@ pub mod day_06 {
         }
     }
 
-    pub fn solve(input: &str) -> usize {
+    pub fn solve_part_1(input: &str) -> usize {
+        get_position_of_nth_distinct_char(input, 4)
+    }
+
+    pub fn solve_part_2(input: &str) -> usize {
+        get_position_of_nth_distinct_char(input, 14)
+    }
+
+    fn get_position_of_nth_distinct_char(input: &str, distinct_char_count: usize) -> usize {
         let iter = input.chars().enumerate();
-        let mut buffer = Buffer::new(4);
+        let mut buffer = Buffer::new(distinct_char_count);
         for (i, c) in iter {
             buffer.push(c);
             if buffer.has_unique_chars() && buffer.is_full() {
@@ -57,6 +65,13 @@ mod tests {
     fn test_part_1() {
         let input = fs::read_to_string("input/day_06.txt").unwrap_or(String::from(""));
 
-        assert_eq!(super::day_06::solve(&input), 1238);
+        assert_eq!(super::day_06::solve_part_1(&input), 1238);
+    }
+
+    #[test]
+    fn test_part_2() {
+        let input = fs::read_to_string("input/day_06.txt").unwrap_or(String::from(""));
+
+        assert_eq!(super::day_06::solve_part_2(&input), 3037);
     }
 }
