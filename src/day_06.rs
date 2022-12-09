@@ -1,9 +1,9 @@
 pub mod day_06 {
-    use std::collections::{VecDeque, HashSet};
+    use std::collections::{VecDeque, HashSet, HashMap};
 
     struct Buffer {
         chars: VecDeque<char>,
-        unique_chars: HashSet<char>,
+        char_count: HashMap<char, u32>,
         size: usize,
     }
 
@@ -12,20 +12,23 @@ pub mod day_06 {
             if size == 0 {
                 panic!("Buffer size can't be 0");
             }
-            Buffer { chars: VecDeque::new(), unique_chars: HashSet::new(), size }
+            Buffer { chars: VecDeque::new(), char_count: HashMap::new(), size }
         }
 
         fn has_unique_chars(&mut self) -> bool {
-            self.chars.len() == self.unique_chars.len()
+            self.chars.len() == self.char_count.len()
         }
 
         fn push(&mut self, c: char) {
             if self.chars.len() == self.size {
                 let poped = self.chars.pop_front().unwrap();
-                self.unique_chars.remove(&poped);
+                *self.char_count.entry(poped).or_insert(1) -= 1;
+                if self.char_count[&poped] == 0 {
+                    self.char_count.remove(&poped);
+                }
             }
             self.chars.push_back(c);
-            self.unique_chars.insert(c);
+            *self.char_count.entry(c).or_insert(0) += 1;
         }
 
         fn is_full(&self) -> bool {
@@ -39,9 +42,9 @@ pub mod day_06 {
         for (i, c) in iter {
             buffer.push(c);
             if buffer.has_unique_chars() && buffer.is_full() {
-                return i;
-            }
-        }
+                return i + 1;
+            };
+        };
         panic!("Invalid input");
     }
 }
