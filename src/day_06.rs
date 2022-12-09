@@ -21,10 +21,10 @@ pub mod day_06 {
 
         fn push(&mut self, c: char) {
             if self.chars.len() == self.size {
-                let poped = self.chars.pop_front().unwrap();
-                *self.char_count.entry(poped).or_insert(1) -= 1;
-                if self.char_count[&poped] == 0 {
-                    self.char_count.remove(&poped);
+                let popped = self.chars.pop_front().unwrap();
+                *self.char_count.entry(popped).or_insert(1) -= 1;
+                if self.char_count[&popped] == 0 {
+                    self.char_count.remove(&popped);
                 }
             }
             self.chars.push_back(c);
