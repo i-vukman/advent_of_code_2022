@@ -44,21 +44,25 @@ pub mod day_07 {
                 panic!("Can't add folder to file");
             }
 
-            let path_iterator = relative_path.trim_matches('/').split('/');
+            let relative_path = relative_path.trim_matches('/');
+
+            if !relative_path.contains('/') {
+                self.add_folder(relative_path);
+                return;
+            }
+
+            let path_iterator = relative_path.split('/');
             let mut consumed_chars = 0;
             
             for path in path_iterator {
                 consumed_chars += path.len() + 1;
                 for child in self.children.iter_mut() {
                     if child.is_folder() && path == child.name {
-                        return child.add_folder_to_relative_path(&"");
+                        return child.add_folder_to_relative_path(&relative_path[consumed_chars..]);
                     }
                 }
+                self.add_folder(relative_path);
             }
-
-
-            //TODO: traverse hierarchy until file is found!
-            self.add_folder(relative_path);
         }
 
         fn add_folder(&mut self, folder_name: &str) {
@@ -72,7 +76,7 @@ pub mod day_07 {
 
     pub fn solve(input: &str) -> FileSystemNode {
         let mut current_path = String::from("");
-        let mut root = FileSystemNode::new("/".to_string(), 0);
+        let mut root = FileSystemNode::new("".to_string(), 0);
 
         input
             .lines()
@@ -95,10 +99,10 @@ pub mod day_07 {
                         root.add_folder_to_relative_path(&format!("{}{}", current_path, dir_name));
                     }
                     _ => { 
-                        let mut split = line.split(' ');
-                        let size = split.next().expect("Missing size for listed file");
-                        let name = split.next().expect("Missing name for listed file");
-                        root.add_file_to_relative_path(name, size.parse().expect(&format!("Invalid file size {size}")));
+                        //let mut split = line.split(' ');
+                        //let size = split.next().expect("Missing size for listed file");
+                        //let name = split.next().expect("Missing name for listed file");
+                        //root.add_file_to_relative_path(name, size.parse().expect(&format!("Invalid file size {size}")));
                     }
                 }
             });
