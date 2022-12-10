@@ -56,12 +56,14 @@ pub mod day_07 {
             
             for path in path_iterator {
                 consumed_chars += path.len() + 1;
+                //TODO: use HashSet instead so there is no need to iterate. Use methods of hashset to create node if not exists!
                 for child in self.children.iter_mut() {
                     if child.is_folder() && path == child.name {
                         return child.add_folder_to_relative_path(&relative_path[consumed_chars..]);
                     }
                 }
-                self.add_folder(relative_path);
+                //TODO: create new node here and call method on it
+                //self.add_folder(path);
             }
         }
 
