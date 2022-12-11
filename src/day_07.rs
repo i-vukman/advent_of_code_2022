@@ -69,21 +69,20 @@ pub mod day_07 {
                 self.children.push(FileSystemNode::new(node_name.to_string(), size));
                 return;
             }
-
-            let mut path_iterator = relative_path.split('/');
             
-            let folder_name = path_iterator.next().expect("Iterator_can't be empty");
+            let folder_name = relative_path.split('/').next().expect("Iterator_can't be empty");
             let new_relative_path = &relative_path[folder_name.len() + 1..];
 
-            for child in self.children.iter_mut() {
-                if child.is_folder() && folder_name == child.name {
-                    return child.add_node_to_relative_path(new_relative_path, size);
+            let existing_folder = self.children.iter_mut().find(|child| child.is_folder() && child.name == folder_name);
+
+            match existing_folder {
+                Some(folder) => folder.add_node_to_relative_path(new_relative_path, size),
+                None => {
+                    let mut new_folder = FileSystemNode::new(folder_name.to_string(), 0);
+                    new_folder.add_node_to_relative_path(new_relative_path, size);
+                    self.children.push(new_folder);
                 }
             }
-
-            let mut new_node = FileSystemNode::new(folder_name.to_string(), 0);
-            new_node.add_node_to_relative_path(new_relative_path, size);
-            self.children.push(new_node);
         }
 
         fn has_child_with_name(&self, name: &str) -> bool {
