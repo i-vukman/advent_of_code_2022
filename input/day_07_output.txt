@@ -1,0 +1,2919 @@
+
+running 12 tests
+test day_01::tests::test_from_input ... ok
+test day_05::tests::test_part_1 ... ok
+test day_06::tests::test_part_1 ... ok
+test day_02::solution::tests::test_part_2_from_input ... ok
+test day_04::tests::test_part_2 ... ok
+test day_03::tests::test_input_1 ... ok
+test day_02::solution::tests::test_part_1_from_input ... ok
+test day_05::tests::test_part_2 ... ok
+test day_04::tests::test_part_1 ... ok
+test day_06::tests::test_part_2 ... ok
+test day_03::tests::test_input_2 ... ok
+test day_07::tests::test_part_01 ... FAILED
+
+failures:
+
+---- day_07::tests::test_part_01 stdout ----
+FileSystemNode {
+    name: "",
+    size: 0,
+    children: [
+        FileSystemNode {
+            name: "dpllhlcv",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "bplz.rdp",
+                    size: 11223,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "gpmlznd",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "lwzcss",
+                            size: 0,
+                            children: [
+                                FileSystemNode {
+                                    name: "bttplh",
+                                    size: 0,
+                                    children: [
+                                        FileSystemNode {
+                                            name: "rzj",
+                                            size: 0,
+                                            children: [
+                                                FileSystemNode {
+                                                    name: "nzwbc.psj",
+                                                    size: 59866,
+                                                    children: [],
+                                                },
+                                            ],
+                                        },
+                                    ],
+                                },
+                            ],
+                        },
+                        FileSystemNode {
+                            name: "nzwbc.rgv",
+                            size: 83678,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "rhdllvm",
+                            size: 0,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "wpglzlrf.htl",
+                            size: 94635,
+                            children: [],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "pgcctrb",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "wmsl",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "gpmlzndrhdllvm",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "mvqfrq",
+                            size: 0,
+                            children: [
+                                FileSystemNode {
+                                    name: "prvl",
+                                    size: 41266,
+                                    children: [],
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "hznrlfhh.tnz",
+            size: 284723,
+            children: [],
+        },
+        FileSystemNode {
+            name: "mgjdlmrz",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "dng.qrc",
+                    size: 79173,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "fnfw",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "bhjm",
+                            size: 0,
+                            children: [
+                                FileSystemNode {
+                                    name: "bpl",
+                                    size: 0,
+                                    children: [
+                                        FileSystemNode {
+                                            name: "btpglc",
+                                            size: 0,
+                                            children: [
+                                                FileSystemNode {
+                                                    name: "rrrj.rhl",
+                                                    size: 276105,
+                                                    children: [],
+                                                },
+                                            ],
+                                        },
+                                        FileSystemNode {
+                                            name: "fmbpzn",
+                                            size: 275227,
+                                            children: [],
+                                        },
+                                        FileSystemNode {
+                                            name: "mjztf.nlg",
+                                            size: 9798,
+                                            children: [],
+                                        },
+                                        FileSystemNode {
+                                            name: "nzwbc",
+                                            size: 190388,
+                                            children: [],
+                                        },
+                                        FileSystemNode {
+                                            name: "tzjthwc",
+                                            size: 0,
+                                            children: [],
+                                        },
+                                    ],
+                                },
+                                FileSystemNode {
+                                    name: "dgpfcftj",
+                                    size: 57561,
+                                    children: [],
+                                },
+                                FileSystemNode {
+                                    name: "glplnd",
+                                    size: 0,
+                                    children: [],
+                                },
+                                FileSystemNode {
+                                    name: "hwsjhwvf.rmv",
+                                    size: 170692,
+                                    children: [],
+                                },
+                                FileSystemNode {
+                                    name: "rrrj",
+                                    size: 0,
+                                    children: [],
+                                },
+                                FileSystemNode {
+                                    name: "tlltjd",
+                                    size: 0,
+                                    children: [],
+                                },
+                                FileSystemNode {
+                                    name: "tzjthwc",
+                                    size: 0,
+                                    children: [],
+                                },
+                                FileSystemNode {
+                                    name: "wmsl",
+                                    size: 0,
+                                    children: [],
+                                },
+                                FileSystemNode {
+                                    name: "bpltzjthwc",
+                                    size: 0,
+                                    children: [
+                                        FileSystemNode {
+                                            name: "hqmw",
+                                            size: 0,
+                                            children: [
+                                                FileSystemNode {
+                                                    name: "mchnt.pls",
+                                                    size: 163168,
+                                                    children: [],
+                                                },
+                                            ],
+                                        },
+                                        FileSystemNode {
+                                            name: "hznrlfhh.tnz",
+                                            size: 280196,
+                                            children: [],
+                                        },
+                                        FileSystemNode {
+                                            name: "mjrlm",
+                                            size: 51545,
+                                            children: [],
+                                        },
+                                        FileSystemNode {
+                                            name: "wmsl",
+                                            size: 228230,
+                                            children: [],
+                                        },
+                                    ],
+                                },
+                            ],
+                        },
+                        FileSystemNode {
+                            name: "bplz.rdp",
+                            size: 263282,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "dhsvtfc",
+                            size: 0,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "hlh",
+                            size: 0,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "nzwbc",
+                            size: 0,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "ttbswbhs.ffs",
+                            size: 177780,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "tzjthwc.wlq",
+                            size: 28452,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "wmsl.rmd",
+                            size: 19548,
+                            children: [],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "hwb",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "nfqzjs",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "qdgplmrt",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "znrnj",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "fnfwglplnd",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "bplz.rdp",
+                            size: 147261,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "hznrlfhh.tnz",
+                            size: 267191,
+                            children: [],
+                        },
+                    ],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "njstc",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "bplz.rdp",
+                    size: 70592,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "ccdp.lpw",
+                    size: 100122,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "jnffc",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "vbvpzw.rst",
+                            size: 54279,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "vzshqq.qpb",
+                            size: 147514,
+                            children: [],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "jnrrwt",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "lcr.mqp",
+                    size: 21922,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "mdts",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "rwdnfc.zqq",
+                    size: 9581,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "zchc",
+                    size: 0,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "nzwbc",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "njwsbs.srq",
+                    size: 192533,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "bplz.rdp",
+                    size: 30185,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "dgpfcftj",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "dhdmsqfs.jhs",
+                            size: 258786,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "ltrg",
+                            size: 0,
+                            children: [
+                                FileSystemNode {
+                                    name: "nzwbc",
+                                    size: 0,
+                                    children: [
+                                        FileSystemNode {
+                                            name: "fhd",
+                                            size: 72334,
+                                            children: [],
+                                        },
+                                    ],
+                                },
+                                FileSystemNode {
+                                    name: "wmsl",
+                                    size: 0,
+                                    children: [],
+                                },
+                            ],
+                        },
+                        FileSystemNode {
+                            name: "nzwbc",
+                            size: 0,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "qqb.qmd",
+                            size: 18568,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "ltrgwmsl",
+                            size: 0,
+                            children: [
+                                FileSystemNode {
+                                    name: "rvt",
+                                    size: 0,
+                                    children: [
+                                        FileSystemNode {
+                                            name: "nzwbc",
+                                            size: 232235,
+                                            children: [],
+                                        },
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "hfg.tsw",
+                    size: 238614,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "lzvmwg.crp",
+                    size: 215453,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "mfbhtb",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "nbdn",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "nzw",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "qqb.qmd",
+                    size: 77355,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "wmsl",
+                    size: 114201,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "zcv",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "hgtr.hst",
+                    size: 138407,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "glrd",
+                    size: 171647,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "zvssq.lch",
+                    size: 223973,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "qzzfvdh",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "dgpfcftj.fbr",
+                    size: 102585,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "nzwbc",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "ffq.sjv",
+                            size: 252665,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "hznrlfhh.tnz",
+                            size: 87232,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "lfpltbmd",
+                            size: 0,
+                            children: [
+                                FileSystemNode {
+                                    name: "dgpfcftj",
+                                    size: 0,
+                                    children: [
+                                        FileSystemNode {
+                                            name: "bplz.rdp",
+                                            size: 264780,
+                                            children: [],
+                                        },
+                                        FileSystemNode {
+                                            name: "nmwvbqlr.dpd",
+                                            size: 169819,
+                                            children: [],
+                                        },
+                                        FileSystemNode {
+                                            name: "whtcbl.zzb",
+                                            size: 9212,
+                                            children: [],
+                                        },
+                                    ],
+                                },
+                                FileSystemNode {
+                                    name: "frtspbh",
+                                    size: 59516,
+                                    children: [],
+                                },
+                            ],
+                        },
+                        FileSystemNode {
+                            name: "lmnvgrm",
+                            size: 0,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "mjrlm",
+                            size: 223794,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "qnfp",
+                            size: 0,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "wdn",
+                            size: 0,
+                            children: [],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "rrrj",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "tzjthwc",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "vgnlftjr",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "vjqzf",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "zhmgmmv",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "nzwbclmnvgrm",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "nwc.qbd",
+                            size: 12367,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "rrrj",
+                            size: 0,
+                            children: [
+                                FileSystemNode {
+                                    name: "tctgzc",
+                                    size: 269510,
+                                    children: [],
+                                },
+                            ],
+                        },
+                        FileSystemNode {
+                            name: "wmsl",
+                            size: 0,
+                            children: [],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "nzwbclmnvgrmwmsl",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "bdgpp.fwd",
+                            size: 138765,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "fljmgctv",
+                            size: 298221,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "hwmwtln",
+                            size: 90883,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "jnhrtbqs",
+                            size: 2731,
+                            children: [],
+                        },
+                    ],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "smvhphf",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "dvtblw.wsr",
+                    size: 202817,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "pgcctrb",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "dgpfcftj",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "tzjthwc",
+                            size: 101757,
+                            children: [],
+                        },
+                    ],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "wmsl",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "bvlvn.pgf",
+                    size: 215238,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "hhtztpm",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "djfbm.djl",
+                            size: 196378,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "ltnwbvg.rqz",
+                            size: 203856,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "mjrlm",
+                            size: 266242,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "ngjd",
+                            size: 0,
+                            children: [
+                                FileSystemNode {
+                                    name: "mjrlm",
+                                    size: 289546,
+                                    children: [],
+                                },
+                            ],
+                        },
+                        FileSystemNode {
+                            name: "wmsl",
+                            size: 0,
+                            children: [],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "hznrlfhh.tnz",
+                    size: 197563,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "tzjthwc",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "hhtztpmwmsl",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "qqb.qmd",
+                            size: 153439,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "tzjthwc",
+                            size: 25326,
+                            children: [],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "rlsswjw.wbr",
+                    size: 17612,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "ttbswbhs.ffs",
+                    size: 132954,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "zpldfrj",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "qljrrlm.clw",
+                            size: 180679,
+                            children: [],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "rrrj.rlf",
+                    size: 114356,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "zpwhgzvc.wql",
+                    size: 169873,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "mjrlm",
+                    size: 62697,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "psndpb",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "dbm",
+                            size: 0,
+                            children: [
+                                FileSystemNode {
+                                    name: "nzwbc",
+                                    size: 0,
+                                    children: [
+                                        FileSystemNode {
+                                            name: "ffmrngmj",
+                                            size: 0,
+                                            children: [
+                                                FileSystemNode {
+                                                    name: "nrwrptz.cmp",
+                                                    size: 299742,
+                                                    children: [],
+                                                },
+                                            ],
+                                        },
+                                    ],
+                                },
+                                FileSystemNode {
+                                    name: "tzjthwc",
+                                    size: 0,
+                                    children: [],
+                                },
+                            ],
+                        },
+                        FileSystemNode {
+                            name: "fbmfpndf",
+                            size: 0,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "fstgbcrc",
+                            size: 0,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "lszgqt",
+                            size: 272771,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "mjrlm",
+                            size: 136189,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "qqb.qmd",
+                            size: 166606,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "vptjzdt",
+                            size: 0,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "dbmtzjthwc",
+                            size: 0,
+                            children: [
+                                FileSystemNode {
+                                    name: "pln",
+                                    size: 268152,
+                                    children: [],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "tzjthwc.hjc",
+                    size: 33688,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "tzjthwc.rnm",
+                    size: 100902,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "frptpcd.cbf",
+                    size: 39475,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "mnd",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "wmsl",
+                            size: 0,
+                            children: [
+                                FileSystemNode {
+                                    name: "rrrj",
+                                    size: 0,
+                                    children: [
+                                        FileSystemNode {
+                                            name: "rmrqhf",
+                                            size: 124041,
+                                            children: [],
+                                        },
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "nzwbc.pmp",
+                    size: 84076,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "rrrj.gph",
+                    size: 196119,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "zmvrrdps",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "wmsl.mpg",
+                            size: 170723,
+                            children: [],
+                        },
+                    ],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "tzjthwc",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "lhccf",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "nzwbc",
+                            size: 0,
+                            children: [
+                                FileSystemNode {
+                                    name: "wmsl",
+                                    size: 0,
+                                    children: [
+                                        FileSystemNode {
+                                            name: "nzwbc.qbd",
+                                            size: 102053,
+                                            children: [],
+                                        },
+                                    ],
+                                },
+                            ],
+                        },
+                        FileSystemNode {
+                            name: "rrrj.wzl",
+                            size: 100347,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "zfwffjn",
+                            size: 0,
+                            children: [],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "nzwbc",
+                    size: 235335,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "wgnhhl",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "wmsl",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "lhccfzfwffjn",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "mrd",
+                            size: 0,
+                            children: [
+                                FileSystemNode {
+                                    name: "qqwlrbsw.zfn",
+                                    size: 139407,
+                                    children: [],
+                                },
+                            ],
+                        },
+                        FileSystemNode {
+                            name: "rrrj.jcz",
+                            size: 23992,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "vnwpddtf",
+                            size: 0,
+                            children: [],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "lhccfzfwffjnvnwpddtf",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "dgpfcftj.wpm",
+                            size: 287771,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "qqb.qmd",
+                            size: 59212,
+                            children: [],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "pzrdpc.fpc",
+                    size: 66628,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "tclm.zqt",
+                    size: 173287,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "cjrtl",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "frfb.flq",
+                            size: 157605,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "gqtprzlg",
+                            size: 182254,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "lldcwcf",
+                            size: 0,
+                            children: [
+                                FileSystemNode {
+                                    name: "bplz.rdp",
+                                    size: 279487,
+                                    children: [],
+                                },
+                                FileSystemNode {
+                                    name: "djzs",
+                                    size: 229071,
+                                    children: [],
+                                },
+                            ],
+                        },
+                        FileSystemNode {
+                            name: "ttbswbhs.ffs",
+                            size: 86395,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "wmsl",
+                            size: 0,
+                            children: [],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "cmqzqrc",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "dgpfcftj",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "gmlgztg",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "hgjnnw.nwp",
+                    size: 16349,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "qflmtrgh",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "snjv",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "ttbswbhs.ffs",
+                    size: 118210,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "vsq",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "zsflzpg",
+                    size: 211036,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "cjrtlwmsl",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "dnfztwvj",
+                            size: 0,
+                            children: [
+                                FileSystemNode {
+                                    name: "hznrlfhh.tnz",
+                                    size: 211224,
+                                    children: [],
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "wgnhhl",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "rrrj",
+                    size: 120460,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "mgjdlmrzrrrj",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "dgpfcftj",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "dqtbltwp",
+                            size: 0,
+                            children: [
+                                FileSystemNode {
+                                    name: "tzjthwc.gnr",
+                                    size: 27856,
+                                    children: [],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "fwdw",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "hnz",
+                    size: 277548,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "nvcsdq.tpj",
+                    size: 164103,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "qzwsg.ccl",
+                    size: 265477,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "tnpjsgnq",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "tpvttzv",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "wmsl.wtq",
+                    size: 209300,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "mgjdlmrzrrrjfwdw",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "fgtfj.pnc",
+                    size: 166347,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "mspn.wcw",
+                    size: 140486,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "nzwbc.dhb",
+                    size: 26602,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "qqb.qmd",
+                    size: 81490,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "tnpjsgnq",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "gbddb",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "qqb.qmd",
+                            size: 1587,
+                            children: [],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "gpqssnq",
+                    size: 0,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "tnpjsgnqgpqssnq",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "fmjpw.mtp",
+                    size: 33979,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "tpvttzv",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "bqvzmb",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "fdhjztlv",
+                            size: 79211,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "wgvqvdp.pzp",
+                            size: 72991,
+                            children: [],
+                        },
+                    ],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "tlltjd",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "swqcsnw",
+                    size: 58096,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "dhsvtfc",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "cwbq",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "ccgdn",
+                            size: 0,
+                            children: [
+                                FileSystemNode {
+                                    name: "blnzrjm",
+                                    size: 0,
+                                    children: [
+                                        FileSystemNode {
+                                            name: "gvs",
+                                            size: 121398,
+                                            children: [],
+                                        },
+                                        FileSystemNode {
+                                            name: "pdppzscr.vph",
+                                            size: 201215,
+                                            children: [],
+                                        },
+                                        FileSystemNode {
+                                            name: "pwj",
+                                            size: 0,
+                                            children: [
+                                                FileSystemNode {
+                                                    name: "bwj.ntc",
+                                                    size: 279141,
+                                                    children: [],
+                                                },
+                                                FileSystemNode {
+                                                    name: "jvqwhwmh.brq",
+                                                    size: 15325,
+                                                    children: [],
+                                                },
+                                            ],
+                                        },
+                                        FileSystemNode {
+                                            name: "smwrnw.hqp",
+                                            size: 3861,
+                                            children: [],
+                                        },
+                                        FileSystemNode {
+                                            name: "tzjthwc",
+                                            size: 0,
+                                            children: [],
+                                        },
+                                        FileSystemNode {
+                                            name: "wzccnw.lsc",
+                                            size: 220659,
+                                            children: [],
+                                        },
+                                    ],
+                                },
+                                FileSystemNode {
+                                    name: "fgmntg.crb",
+                                    size: 46502,
+                                    children: [],
+                                },
+                                FileSystemNode {
+                                    name: "fwdpw",
+                                    size: 0,
+                                    children: [],
+                                },
+                                FileSystemNode {
+                                    name: "nbldsrfq",
+                                    size: 0,
+                                    children: [],
+                                },
+                                FileSystemNode {
+                                    name: "nwj.fht",
+                                    size: 11175,
+                                    children: [],
+                                },
+                                FileSystemNode {
+                                    name: "qqb.qmd",
+                                    size: 208129,
+                                    children: [],
+                                },
+                                FileSystemNode {
+                                    name: "wpj",
+                                    size: 0,
+                                    children: [],
+                                },
+                                FileSystemNode {
+                                    name: "blnzrjmtzjthwc",
+                                    size: 0,
+                                    children: [
+                                        FileSystemNode {
+                                            name: "jdgphj",
+                                            size: 25191,
+                                            children: [],
+                                        },
+                                        FileSystemNode {
+                                            name: "rrrj.szq",
+                                            size: 70354,
+                                            children: [],
+                                        },
+                                        FileSystemNode {
+                                            name: "wmsl",
+                                            size: 256692,
+                                            children: [],
+                                        },
+                                    ],
+                                },
+                            ],
+                        },
+                        FileSystemNode {
+                            name: "gcfbqh",
+                            size: 0,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "hznrlfhh.tnz",
+                            size: 173860,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "mjrlm",
+                            size: 97790,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "qtfhz",
+                            size: 0,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "tpgj",
+                            size: 0,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "tph",
+                            size: 0,
+                            children: [],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "dgpfcftj",
+                    size: 201361,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "jjjjwcw",
+                    size: 291508,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "pfdvf.pmj",
+                    size: 445,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "qpc.gsw",
+                    size: 135732,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "wlgrtn.mjb",
+                    size: 115597,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "wmsl",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "cwbqfwdpw",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "prhjf",
+                            size: 28780,
+                            children: [],
+                        },
+                    ],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "dhsvtfcnbldsrfq",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "dcrhr",
+                    size: 57352,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "wpj",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "jmdn.bzh",
+                    size: 51243,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "gcfbqh",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "crmpsc.rbf",
+                    size: 92250,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "tzjthwc",
+                    size: 284234,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "qtfhz",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "hznrlfhh.tnz",
+                    size: 164311,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "mjrlm",
+                    size: 137031,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "tpgj",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "jdpv.fpw",
+                    size: 210570,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "tph",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "hptp",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "qqb.qmd",
+                            size: 272964,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "svrcpb",
+                            size: 147435,
+                            children: [],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "rrrj",
+                    size: 0,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "tphrrrj",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "btzl.vcs",
+                    size: 145269,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "tzjthwc.ddw",
+                    size: 156500,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "vsrghnhl.wdc",
+                    size: 236073,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "wmslfbmfpndf",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "bplz.rdp",
+                    size: 186758,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "fstgbcrc",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "hznrlfhh.tnz",
+                    size: 4975,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "mjrlm",
+                    size: 59093,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "nzwbc",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "nzwbc",
+                            size: 152443,
+                            children: [],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "qqb.qmd",
+                    size: 279246,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "vptjzdt",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "ttbswbhs.ffs",
+                    size: 117403,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "hlh",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "rrrj.mfv",
+                    size: 96676,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "hwb",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "dshmsgj.cnd",
+                    size: 44576,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "tdcgvdv.phs",
+                    size: 70710,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "nfqzjs",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "tfwmgdj",
+                    size: 18103,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "qdgplmrt",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "mjrlm",
+                    size: 163549,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "znrnj",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "dgpfcftj",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "cdgrjlz",
+                            size: 0,
+                            children: [
+                                FileSystemNode {
+                                    name: "dpnzsq.dbd",
+                                    size: 89863,
+                                    children: [],
+                                },
+                                FileSystemNode {
+                                    name: "mjrlm",
+                                    size: 259686,
+                                    children: [],
+                                },
+                                FileSystemNode {
+                                    name: "qqb.qmd",
+                                    size: 50165,
+                                    children: [],
+                                },
+                            ],
+                        },
+                        FileSystemNode {
+                            name: "fmtclb.vfq",
+                            size: 238240,
+                            children: [],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "mzbpjgd.lmp",
+                    size: 53146,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "vmtdc",
+                    size: 202250,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "njstcjnrrwt",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "bplz.rdp",
+                    size: 51615,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "fvmgmn",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "sntlcs.vms",
+                            size: 159538,
+                            children: [],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "wjrqnlr",
+                    size: 0,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "njstcjnrrwtwjrqnlr",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "dvcqnv",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "mjrlm",
+                            size: 66408,
+                            children: [],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "jnjzlhhw",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "mjrlm",
+                    size: 135325,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "qqb.qmd",
+                    size: 94135,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "njstcjnrrwtwjrqnlrjnjzlhhw",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "bplz.rdp",
+                    size: 89668,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "btcjthr",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "sbcwwvj",
+                            size: 0,
+                            children: [
+                                FileSystemNode {
+                                    name: "wmsl",
+                                    size: 0,
+                                    children: [
+                                        FileSystemNode {
+                                            name: "vfwqsw",
+                                            size: 31258,
+                                            children: [],
+                                        },
+                                    ],
+                                },
+                            ],
+                        },
+                        FileSystemNode {
+                            name: "tzjthwc",
+                            size: 0,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "zjf.fqt",
+                            size: 280405,
+                            children: [],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "btcjthrtzjthwc",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "dgpfcftj",
+                            size: 0,
+                            children: [
+                                FileSystemNode {
+                                    name: "lhnnjrcq",
+                                    size: 281485,
+                                    children: [],
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "mdts",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "ttbswbhs.ffs",
+                    size: 191614,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "zchc",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "rrrj",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "ttbswbhs.ffs",
+                            size: 102230,
+                            children: [],
+                        },
+                    ],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "nzwbcnzwbc",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "rnl",
+                    size: 29531,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "mfbhtb",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "sjrwtjcq",
+                    size: 21538,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "nbdn",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "bplz.rdp",
+                    size: 120432,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "hjsv",
+                    size: 180737,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "mjrlm",
+                    size: 295982,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "rscwnwt",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "fnvfrbzg.wmw",
+                            size: 268727,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "jgfvpmp",
+                            size: 155540,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "rrrj",
+                            size: 242598,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "vqqqmg.dss",
+                            size: 47339,
+                            children: [],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "vzjtg.hhp",
+                    size: 13218,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "zjwf.spw",
+                    size: 1332,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "nzw",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "hfbptj.rsq",
+                    size: 135129,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "nhzg",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "tzjthwc.gsl",
+                            size: 219375,
+                            children: [],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "qshfn",
+                    size: 0,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "nzwqshfn",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "pnjhczqg",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "rlgtn.jvh",
+                            size: 141321,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "wrh",
+                            size: 0,
+                            children: [
+                                FileSystemNode {
+                                    name: "sfvrld.nsz",
+                                    size: 143304,
+                                    children: [],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "tzjthwc",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "whsdfns",
+                    size: 279385,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "wmsl.tpl",
+                    size: 141044,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "nzwqshfntzjthwc",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "lnhmfb",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "dzzdvmtl",
+                            size: 0,
+                            children: [
+                                FileSystemNode {
+                                    name: "mrg",
+                                    size: 0,
+                                    children: [
+                                        FileSystemNode {
+                                            name: "rrrj.lnh",
+                                            size: 174378,
+                                            children: [],
+                                        },
+                                    ],
+                                },
+                            ],
+                        },
+                        FileSystemNode {
+                            name: "ttnm",
+                            size: 0,
+                            children: [],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "qqb.qmd",
+                    size: 168870,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "rrrj.qml",
+                    size: 178464,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "rwdwv.gnn",
+                    size: 201521,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "vznflldw.zrf",
+                    size: 21171,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "lnhmfbttnm",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "hznrlfhh.tnz",
+                            size: 272667,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "wmsl.ggr",
+                            size: 251551,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "wmsl.phl",
+                            size: 97289,
+                            children: [],
+                        },
+                    ],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "zcv",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "cwsqwt",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "bbrgtfh.zmf",
+                            size: 141770,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "mjrlm",
+                            size: 100359,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "qqb.qmd",
+                            size: 96547,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "ttbswbhs.ffs",
+                            size: 176620,
+                            children: [],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "dgpfcftj",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "dntqvr.snf",
+                    size: 256838,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "nbq",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "nzbdsvt",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "rrrj.lvd",
+                    size: 293181,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "zcvdgpfcftj",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "pqjjnjrw",
+                    size: 82245,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "rrrj.lfw",
+                    size: 295247,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "nbq",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "bwdvjv.gwq",
+                    size: 132140,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "gbjtzhj",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "rrrj.msh",
+                            size: 43689,
+                            children: [],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "mfsr",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "nzwbc",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "rrrj",
+                    size: 248867,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "sjtsjgrb",
+                    size: 226784,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "tjh.vft",
+                    size: 94475,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "tzjthwc",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "tzjthwc.rgb",
+                    size: 149501,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "nbqmfsr",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "sntz.lqw",
+                    size: 30068,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "tch",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "tzjthwc",
+                            size: 0,
+                            children: [
+                                FileSystemNode {
+                                    name: "sjwjdmd",
+                                    size: 289238,
+                                    children: [],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "zzgtsqvh",
+                    size: 0,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "nbqmfsrzzgtsqvh",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "tzjthwc.mql",
+                    size: 289069,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "nzbdsvt",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "ttbswbhs.ffs",
+                    size: 89301,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "qnfp",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "ddbcjwg.wqc",
+                    size: 78470,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "ldq",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "ttbswbhs.ffs",
+                            size: 268677,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "wmsl",
+                            size: 0,
+                            children: [
+                                FileSystemNode {
+                                    name: "wfqbv",
+                                    size: 0,
+                                    children: [
+                                        FileSystemNode {
+                                            name: "tgrlfscv.vbn",
+                                            size: 268503,
+                                            children: [],
+                                        },
+                                        FileSystemNode {
+                                            name: "vwlcnm.wqq",
+                                            size: 222733,
+                                            children: [],
+                                        },
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "ljv",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "nzwbc",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "qrwct.rvp",
+                    size: 254734,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "wmsl",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "wmsl.wgv",
+                    size: 95613,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "qnfpljv",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "gjddvvbs.zjq",
+                    size: 184758,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "mjrlm",
+                    size: 278919,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "nzwbc.fsf",
+                    size: 241428,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "wdfwp",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "jnhpmp",
+                            size: 100960,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "sfhjbnq.jpr",
+                            size: 204739,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "twrzzn.tpm",
+                            size: 110857,
+                            children: [],
+                        },
+                    ],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "wdn",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "gpp.qdd",
+                    size: 220196,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "jsjcvvmd.mdc",
+                    size: 71184,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "rrrj.cqm",
+                    size: 228140,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "rrrj",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "qgd.pgt",
+                    size: 165549,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "rrrj.whw",
+                    size: 206913,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "ttbswbhs.ffs",
+                    size: 56087,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "bdgws",
+                    size: 277036,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "dgpfcftj",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "mzjmmddr.fnl",
+                            size: 172038,
+                            children: [],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "dgpfcftj.zgt",
+                    size: 269322,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "fsqdnl",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "qqb.qmd",
+                    size: 33872,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "cmqzqrc",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "bsfqcv",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "ltzblpc",
+                            size: 62520,
+                            children: [],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "dgpfcftj",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "nzwbc",
+                    size: 0,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "cmqzqrcdgpfcftj",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "bdv.snn",
+                    size: 144915,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "rrrj.qfg",
+                    size: 170427,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "tzjthwc",
+                    size: 287416,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "dgpfcftj",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "pzfnlzbj",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "dgpfcftj.ffm",
+                            size: 190720,
+                            children: [],
+                        },
+                    ],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "gmlgztg",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "bplz.rdp",
+                    size: 234781,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "nzwbc.mgl",
+                    size: 29314,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "qqb.qmd",
+                    size: 86928,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "rrrj.qlm",
+                    size: 262374,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "qflmtrgh",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "rrrj",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "wftzbw",
+                            size: 0,
+                            children: [
+                                FileSystemNode {
+                                    name: "chzs",
+                                    size: 0,
+                                    children: [
+                                        FileSystemNode {
+                                            name: "dfhzcft",
+                                            size: 0,
+                                            children: [
+                                                FileSystemNode {
+                                                    name: "mjrlm",
+                                                    size: 93504,
+                                                    children: [],
+                                                },
+                                            ],
+                                        },
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "wrm",
+                    size: 0,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "qflmtrghwrm",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "jzgqvthh",
+                    size: 13708,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "mlwflb",
+                    size: 138652,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "szfzs.clj",
+                    size: 145161,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "ttbswbhs.ffs",
+                    size: 297793,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "snjv",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "grq",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "jzccjh.lsl",
+                            size: 189188,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "nzwbc",
+                            size: 0,
+                            children: [
+                                FileSystemNode {
+                                    name: "vzc",
+                                    size: 12818,
+                                    children: [],
+                                },
+                            ],
+                        },
+                        FileSystemNode {
+                            name: "pngngj",
+                            size: 97611,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "tzjthwc",
+                            size: 0,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "wjcjqc",
+                            size: 0,
+                            children: [],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "nzwbc",
+                    size: 92025,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "rrrj",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "wmsl",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "grqtzjthwc",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "cfwvmwr",
+                            size: 0,
+                            children: [
+                                FileSystemNode {
+                                    name: "pfgmbsjd",
+                                    size: 227691,
+                                    children: [],
+                                },
+                            ],
+                        },
+                        FileSystemNode {
+                            name: "dgpfcftj",
+                            size: 54762,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "gbt.whg",
+                            size: 179432,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "njsfv",
+                            size: 0,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "whr.jqn",
+                            size: 220002,
+                            children: [],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "grqtzjthwcnjsfv",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "fpjqqcsp.czm",
+                            size: 39114,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "mjrlm",
+                            size: 289813,
+                            children: [],
+                        },
+                        FileSystemNode {
+                            name: "qqb.qmd",
+                            size: 279549,
+                            children: [],
+                        },
+                    ],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "wjcjqc",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "ttbswbhs.ffs",
+                    size: 258155,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "rrrjfsqdnl",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "zczcgq.lbb",
+                    size: 250732,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "vsq",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "hznrlfhh.tnz",
+                    size: 136431,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "mrrc.tst",
+                    size: 195767,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "vgnlftjr",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "mjrlm",
+                    size: 29769,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "wmsl.nhr",
+                    size: 53024,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "wps.hhq",
+                    size: 123863,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "vjqzf",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "dgpfcftj",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "mvlb.gbn",
+                            size: 47874,
+                            children: [],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "gnnstzc",
+                    size: 0,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "lgrst.fhc",
+                    size: 45701,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "spdrmtbd.pnd",
+                    size: 265249,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "ttbswbhs.ffs",
+                    size: 182349,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "vjqzfgnnstzc",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "lbqh.pst",
+                    size: 105525,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "rrrj.hlm",
+                    size: 13456,
+                    children: [],
+                },
+                FileSystemNode {
+                    name: "vll.cft",
+                    size: 62170,
+                    children: [],
+                },
+            ],
+        },
+        FileSystemNode {
+            name: "zhmgmmv",
+            size: 0,
+            children: [
+                FileSystemNode {
+                    name: "fvwm",
+                    size: 0,
+                    children: [
+                        FileSystemNode {
+                            name: "dgpfcftj",
+                            size: 0,
+                            children: [
+                                FileSystemNode {
+                                    name: "qqb.qmd",
+                                    size: 214069,
+                                    children: [],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                FileSystemNode {
+                    name: "qtjnmzrd.grm",
+                    size: 165656,
+                    children: [],
+                },
+            ],
+        },
+    ],
+}
+thread 'day_07::tests::test_part_01' panicked at 'assertion failed: `(left == right)`
+  left: `1776148`,
+ right: `17761482`', src/day_07.rs:143:11
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    day_07::tests::test_part_01
+
+test result: FAILED. 11 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+

@@ -1,4 +1,6 @@
 pub mod day_07 {
+    use std::collections::VecDeque;
+
     #[derive(Debug)]
     pub struct FileSystemNode {
         name: String,
@@ -16,15 +18,21 @@ pub mod day_07 {
         }
 
         pub fn sum_folders_with_max_size(&self, max_size: u32) -> u32 {
-            let folder_total = if self.is_folder() { self.sum_all_files() } else { 0 };
-            let folder_total = if folder_total <= max_size { folder_total } else { 0 };
-
-            let children_sum: u32 = self.children
-                .iter()
-                .map(|child| child.sum_folders_with_max_size(max_size))
-                .sum();
+            let mut queue = VecDeque::new();
+            queue.push_back(self);
             
-            folder_total + children_sum
+            let mut total = 0;
+            while !queue.is_empty() {
+                let node = queue.pop_front().unwrap();
+                if node.is_folder() {
+                    let folder_sum = node.sum_all_files();
+                    if folder_sum <= max_size {
+                        total += folder_sum;
+                    }
+                }
+                node.children.iter().for_each(|child| queue.push_back(child));
+            }
+            total
         }
 
         fn sum_all_files(&self) -> u32 {
@@ -88,7 +96,7 @@ pub mod day_07 {
 
     pub fn solve(input: &str) -> u32 {
         let mut current_path = String::from("");
-        let mut root = FileSystemNode::new("".to_string(), 0);
+        let mut root = FileSystemNode::new("/".to_string(), 0);
 
         //TODO: extract to build_hierarchy
         input
@@ -99,36 +107,37 @@ pub mod day_07 {
                         let path = line.split(' ').last().expect("Missing cd param");
                         match path {
                             ".." => {
+                                // TODO: investigate why is this needed!? Might be a source of bugs
                                 if current_path == "/" {
+                                    panic!("Called on {current_path}");
                                     return;
                                 }
-                                current_path.pop();
                                 while current_path.pop().expect(&format!("{current_path} should not be empty")) != '/' { }
 
                                 //TODO: fixme, make sure that current_path never pops last / instead!
-                                if current_path.is_empty() {
-                                    current_path.push('/');
-                                }
+                                //if current_path.is_empty() {
+                                //    current_path.push('/');
+                                //}
                             },
                             "/" => current_path = "/".to_string(),
-                            _ => current_path.push_str(&format!("{}/", path))
+                            _ => current_path.push_str(&format!("/{}", path))
                         } 
                     },
                     _l if line.starts_with("$ ls") => (),
                     l if line.starts_with("dir") => { 
                         let dir_name = l.split(' ').last().expect("Missing dir name in output");
-                        root.add_node_to_relative_path(&format!("{}{}", current_path, dir_name), 0);
+                        root.add_node_to_relative_path(&format!("{}/{}", current_path, dir_name), 0);
                     }
                     _ => { 
                         let mut split = line.split(' ');
                         let size = split.next().expect("Missing size for listed file");
                         let name = split.next().expect("Missing name for listed file");
-                        let relative_path = &format!("{}{}", current_path, name);
+                        let relative_path = &format!("{}/{}", current_path, name);
                         root.add_file_to_relative_path(relative_path, size.parse().expect(&format!("Invalid file size {size}")));
                     }
                 }
             });
-        
+        println!("{:#?}", root);
         root.sum_folders_with_max_size(100000)
     }
   }
@@ -140,6 +149,12 @@ pub mod day_07 {
       #[test]
       fn test_part_01() {
           let input = fs::read_to_string("input/day_07.txt").unwrap_or(String::from(""));
-          assert_eq!(super::day_07::solve(&input), 1776148);
+          assert_eq!(super::day_07::solve(&input), 1648397);
+      }
+
+      #[test]
+      fn test_sample() {
+          let input = fs::read_to_string("input/day_07_sample.txt").unwrap_or(String::from(""));
+          assert_eq!(super::day_07::solve(&input), 95437);
       }
   }
