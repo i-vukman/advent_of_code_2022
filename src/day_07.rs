@@ -1,5 +1,4 @@
 pub mod day_07 {
-    use std::collections::VecDeque;
 
     #[derive(Debug)]
     pub struct FileSystemNode {
