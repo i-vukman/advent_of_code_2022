@@ -107,17 +107,7 @@ pub mod day_07 {
                         let path = line.split(' ').last().expect("Missing cd param");
                         match path {
                             ".." => {
-                                // TODO: investigate why is this needed!? Might be a source of bugs
-                                if current_path == "/" {
-                                    panic!("Called on {current_path}");
-                                    return;
-                                }
                                 while current_path.pop().expect(&format!("{current_path} should not be empty")) != '/' { }
-
-                                //TODO: fixme, make sure that current_path never pops last / instead!
-                                //if current_path.is_empty() {
-                                //    current_path.push('/');
-                                //}
                             },
                             "/" => current_path = "/".to_string(),
                             _ => current_path.push_str(&format!("/{}", path))
