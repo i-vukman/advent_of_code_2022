@@ -29,6 +29,27 @@ pub mod day_07 {
             folder_size + children_folder_size_sum
         }
 
+        pub fn find_smallest_folder_with_size_larger_than(&self, minimum_size: u32) -> Option<u32> {
+            let folder_size = if self.is_folder() { self.sum_all_files() } else { 0 };
+            let folder_size = if folder_size >= minimum_size { Some(folder_size) } else { None };
+
+            let smallest_child = self
+                .children
+                .iter()
+                .map(|child| child.find_smallest_folder_with_size_larger_than(minimum_size))
+                .filter(|result| result.is_some())
+                .min()
+                .flatten();
+            
+            match folder_size {
+                Some(size) => match smallest_child {
+                    Some(smallest_child_size) => if size < smallest_child_size { Some(size) } else { Some(smallest_child_size) },
+                    None => Some(size)
+                },
+                None => smallest_child
+            }
+        }
+
         fn sum_all_files(&self) -> u32 {
             if self.children.is_empty() {
                 return self.size;
@@ -95,11 +116,21 @@ pub mod day_07 {
         }
     }
 
-    pub fn solve(input: &str) -> u32 {
+    pub fn solve_01(input: &str) -> u32 {
+        let root = parse_file_system_tree(input);
+        root.sum_folders_with_size_less_than(100000)
+    }
+
+    pub fn solve_02(input: &str) -> u32 {
+        let root = parse_file_system_tree(input);
+        let total_diff = 30000000 - (70000000 - root.sum_all_files());
+        root.find_smallest_folder_with_size_larger_than(total_diff).unwrap()
+    }
+
+    fn parse_file_system_tree(input: &str) -> FileSystemNode {
         let mut current_path = String::from("");
         let mut root = FileSystemNode::new("/".to_string(), 0);
-
-        //TODO: extract to build_hierarchy
+      
         input
             .lines()
             .for_each(|line| {
@@ -117,7 +148,7 @@ pub mod day_07 {
                     _l if line.starts_with("$ ls") => (),
                     l if line.starts_with("dir") => { 
                         let dir_name = l.split(' ').last().expect("Missing dir name in output");
-                        root.add_node_to_relative_path(&format!("{}/{}", current_path, dir_name), 0);
+                        root.add_folder_to_relative_path(&format!("{}/{}", current_path, dir_name));
                     }
                     _ => { 
                         let mut split = line.split(' ');
@@ -128,8 +159,9 @@ pub mod day_07 {
                     }
                 }
             });
-        root.sum_folders_with_size_less_than(100000)
-    }
+
+            root
+      }
   }
 
   #[cfg(test)]
@@ -139,12 +171,18 @@ pub mod day_07 {
       #[test]
       fn test_part_01() {
           let input = fs::read_to_string("input/day_07.txt").unwrap_or(String::from(""));
-          assert_eq!(super::day_07::solve(&input), 1648397);
+          assert_eq!(super::day_07::solve_01(&input), 1648397);
       }
 
       #[test]
       fn test_sample() {
           let input = fs::read_to_string("input/day_07_sample.txt").unwrap_or(String::from(""));
-          assert_eq!(super::day_07::solve(&input), 95437);
+          assert_eq!(super::day_07::solve_01(&input), 95437);
+      }
+
+      #[test]
+      fn test_part_02() {
+          let input = fs::read_to_string("input/day_07.txt").unwrap_or(String::from(""));
+          assert_eq!(super::day_07::solve_02(&input), 8407807);
       }
   }
