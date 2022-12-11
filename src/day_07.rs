@@ -29,14 +29,14 @@ pub mod day_07 {
             folder_size + children_folder_size_sum
         }
 
-        pub fn find_smallest_folder_with_size_larger_than(&self, minimum_size: u32) -> Option<u32> {
+        pub fn find_smallest_folder_size_with_size_larger_than(&self, minimum_size: u32) -> Option<u32> {
             let folder_size = if self.is_folder() { self.sum_all_files() } else { 0 };
             let folder_size = if folder_size >= minimum_size { Some(folder_size) } else { None };
 
             let smallest_child = self
                 .children
                 .iter()
-                .map(|child| child.find_smallest_folder_with_size_larger_than(minimum_size))
+                .map(|child| child.find_smallest_folder_size_with_size_larger_than(minimum_size))
                 .filter(|result| result.is_some())
                 .min()
                 .flatten();
@@ -124,7 +124,7 @@ pub mod day_07 {
     pub fn solve_02(input: &str) -> u32 {
         let root = parse_file_system_tree(input);
         let total_diff = 30000000 - (70000000 - root.sum_all_files());
-        root.find_smallest_folder_with_size_larger_than(total_diff).unwrap()
+        root.find_smallest_folder_size_with_size_larger_than(total_diff).unwrap()
     }
 
     fn parse_file_system_tree(input: &str) -> FileSystemNode {
