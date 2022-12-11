@@ -16,14 +16,14 @@ pub mod day_07 {
             return self.size == 0;
         }
 
-        pub fn sum_folders_with_max_size(&self, max_size: u32) -> u32 {
+        pub fn sum_folders_with_size_less_than(&self, size_limit: u32) -> u32 {
             let folder_size = if self.is_folder() { self.sum_all_files() } else { 0 };
-            let folder_size = if folder_size <= max_size { folder_size } else { 0 };
+            let folder_size = if folder_size <= size_limit { folder_size } else { 0 };
 
             let children_folder_size_sum: u32 = self
                 .children
                 .iter()
-                .map(|child| child.sum_folders_with_max_size(max_size))
+                .map(|child| child.sum_folders_with_size_less_than(size_limit))
                 .sum();
             
             folder_size + children_folder_size_sum
@@ -53,38 +53,46 @@ pub mod day_07 {
                 panic!("Can't add nodes to file!");
             }
 
-            let relative_path = relative_path.trim_matches('/');
+            if relative_path.is_empty() {
+                panic!("Can't add node to empty relative path!");
+            }
 
-            //TODO: extract in separate method, move to loop!!
-            if !relative_path.contains('/') {
+            let relative_path = relative_path.trim_matches('/');
+            let is_node_name = !relative_path.contains('/');
+            
+            if is_node_name {
                 let node_name = relative_path;
-                //TODO: check if we need this check here?
-                for child in self.children.iter() {
-                    if child.name == node_name {
-                        return;
-                    }
+                if self.has_child_with_name(node_name) {
+                    return;
                 }
                 
                 self.children.push(FileSystemNode::new(node_name.to_string(), size));
                 return;
             }
 
-            let path_iterator = relative_path.split('/');
-            let mut consumed_chars = 0;
+            let mut path_iterator = relative_path.split('/');
             
-            //TODO: Could we care about only first element instead, and then create new relative path from it?
-            for path in path_iterator {
-                consumed_chars += path.len();
-                let new_relative_path = &relative_path[consumed_chars..];
-                for child in self.children.iter_mut() {
-                    if child.is_folder() && path == child.name {
-                        return child.add_node_to_relative_path(new_relative_path, size);
-                    }
+            let folder_name = path_iterator.next().expect("Iterator_can't be empty");
+            let new_relative_path = &relative_path[folder_name.len() + 1..];
+
+            for child in self.children.iter_mut() {
+                if child.is_folder() && folder_name == child.name {
+                    return child.add_node_to_relative_path(new_relative_path, size);
                 }
-                let mut new_node = FileSystemNode::new(path.to_string(), 0);
-                new_node.add_node_to_relative_path(new_relative_path, size);
-                return self.children.push(new_node);
             }
+
+            let mut new_node = FileSystemNode::new(folder_name.to_string(), 0);
+            new_node.add_node_to_relative_path(new_relative_path, size);
+            self.children.push(new_node);
+        }
+
+        fn has_child_with_name(&self, name: &str) -> bool {
+          for child in self.children.iter() {
+            if child.name == name {
+                return true;
+            }
+          }
+          false
         }
     }
 
@@ -121,8 +129,7 @@ pub mod day_07 {
                     }
                 }
             });
-        println!("{:#?}", root);
-        root.sum_folders_with_max_size(100000)
+        root.sum_folders_with_size_less_than(100000)
     }
   }
 
