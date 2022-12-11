@@ -18,21 +18,16 @@ pub mod day_07 {
         }
 
         pub fn sum_folders_with_max_size(&self, max_size: u32) -> u32 {
-            let mut queue = VecDeque::new();
-            queue.push_back(self);
+            let folder_size = if self.is_folder() { self.sum_all_files() } else { 0 };
+            let folder_size = if folder_size <= max_size { folder_size } else { 0 };
+
+            let children_folder_size_sum: u32 = self
+                .children
+                .iter()
+                .map(|child| child.sum_folders_with_max_size(max_size))
+                .sum();
             
-            let mut total = 0;
-            while !queue.is_empty() {
-                let node = queue.pop_front().unwrap();
-                if node.is_folder() {
-                    let folder_sum = node.sum_all_files();
-                    if folder_sum <= max_size {
-                        total += folder_sum;
-                    }
-                }
-                node.children.iter().for_each(|child| queue.push_back(child));
-            }
-            total
+            folder_size + children_folder_size_sum
         }
 
         fn sum_all_files(&self) -> u32 {
