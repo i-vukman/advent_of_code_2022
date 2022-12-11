@@ -15,6 +15,29 @@ pub mod day_07 {
             return self.size == 0;
         }
 
+        pub fn sum_folders_with_max_size(&self, max_size: u32) -> u32 {
+            let folder_total = if self.is_folder() { self.sum_all_files() } else { 0 };
+            let folder_total = if folder_total <= max_size { folder_total } else { 0 };
+
+            let children_sum: u32 = self.children
+                .iter()
+                .map(|child| child.sum_folders_with_max_size(max_size))
+                .sum();
+            
+            folder_total + children_sum
+        }
+
+        fn sum_all_files(&self) -> u32 {
+            if self.children.is_empty() {
+                return self.size;
+            }
+
+            self.children
+                .iter()
+                .map(|child| child.sum_all_files())
+                .sum()
+        }
+
         pub fn add_folder_to_relative_path(&mut self, rleative_path: &str) {
             self.add_node_to_relative_path(rleative_path, 0);
         }
@@ -30,9 +53,16 @@ pub mod day_07 {
 
             let relative_path = relative_path.trim_matches('/');
 
-            //TODO: extract in separate method
+            //TODO: extract in separate method, move to loop!!
             if !relative_path.contains('/') {
                 let node_name = relative_path;
+                //TODO: check if we need this check here?
+                for child in self.children.iter() {
+                    if child.name == node_name {
+                        return;
+                    }
+                }
+                
                 self.children.push(FileSystemNode::new(node_name.to_string(), size));
                 return;
             }
@@ -40,31 +70,32 @@ pub mod day_07 {
             let path_iterator = relative_path.split('/');
             let mut consumed_chars = 0;
             
-            //TODO: extract for body in separate method
+            //TODO: Could we care about only first element instead, and then create new relative path from it?
             for path in path_iterator {
                 consumed_chars += path.len();
                 let new_relative_path = &relative_path[consumed_chars..];
                 for child in self.children.iter_mut() {
                     if child.is_folder() && path == child.name {
-                        return child.add_node_to_relative_path(&new_relative_path, size);
+                        return child.add_node_to_relative_path(new_relative_path, size);
                     }
                 }
                 let mut new_node = FileSystemNode::new(path.to_string(), 0);
-                new_node.add_node_to_relative_path(&new_relative_path, size);
-                self.children.push(new_node);
+                new_node.add_node_to_relative_path(new_relative_path, size);
+                return self.children.push(new_node);
             }
         }
     }
 
-    pub fn solve(input: &str) -> FileSystemNode {
+    pub fn solve(input: &str) -> u32 {
         let mut current_path = String::from("");
         let mut root = FileSystemNode::new("".to_string(), 0);
 
+        //TODO: extract to build_hierarchy
         input
             .lines()
             .for_each(|line| {
                 match line {
-                    l if line.starts_with("$ cd") => {
+                    _l if line.starts_with("$ cd") => {
                         let path = line.split(' ').last().expect("Missing cd param");
                         match path {
                             ".." => {
@@ -72,7 +103,12 @@ pub mod day_07 {
                                     return;
                                 }
                                 current_path.pop();
-                                while current_path.pop().unwrap() != '/' { }
+                                while current_path.pop().expect(&format!("{current_path} should not be empty")) != '/' { }
+
+                                //TODO: fixme, make sure that current_path never pops last / instead!
+                                if current_path.is_empty() {
+                                    current_path.push('/');
+                                }
                             },
                             "/" => current_path = "/".to_string(),
                             _ => current_path.push_str(&format!("{}/", path))
@@ -93,7 +129,7 @@ pub mod day_07 {
                 }
             });
         
-        root
+        root.sum_folders_with_max_size(100000)
     }
   }
 
@@ -103,9 +139,7 @@ pub mod day_07 {
 
       #[test]
       fn test_part_01() {
-          let input = fs::read_to_string("input/day_07_sample.txt").unwrap_or(String::from(""));
-          let file_hierarchy = super::day_07::solve(&input);
-          println!("{:#?}", file_hierarchy);
-          assert_eq!(2, 3);
+          let input = fs::read_to_string("input/day_07.txt").unwrap_or(String::from(""));
+          assert_eq!(super::day_07::solve(&input), 1776148);
       }
   }
