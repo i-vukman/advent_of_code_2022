@@ -1,10 +1,14 @@
 use nom::{combinator::all_consuming, Finish};
-use terminal_output::{parsers::parse_line, types::{Line, Command, Entry}};
+use terminal_output::{line::{Line, parse_line}, command::Command, entry::Entry};
 use types::file_system_node::FileSystemNode;
 
 pub mod terminal_output {
-    pub mod parsers;
-    pub mod types;
+    pub mod path;
+    pub mod cd;
+    pub mod command;
+    pub mod entry;
+    pub mod line;
+    pub mod ls;
 }
 
 pub mod types {
@@ -21,7 +25,8 @@ pub fn parse_lines(input: &str) -> Vec<Line> {
 
 //TODO: move this to node impl block
 pub fn build_file_tree(lines: Vec<Line>) -> FileSystemNode {
-    let mut node = FileSystemNode::default();
+    let mut root = FileSystemNode::default();
+    let mut node = &mut root;
 
     for line in lines {
         match line {
@@ -29,7 +34,17 @@ pub fn build_file_tree(lines: Vec<Line>) -> FileSystemNode {
                 Command::Ls => {
                     //Ignored on purpose
                 },
-                Command::Cd(_) => todo!(),
+                Command::Cd(path) => match path.as_str() {
+                    "/" => {
+
+                    }
+                    ".." => {
+
+                    }
+                    _ => {
+                        node = node.children.entry(path).or_default();
+                    }
+                },
             },
             Line::Entry(entry) => match entry {
                 Entry::Dir(dir) => {
@@ -42,7 +57,7 @@ pub fn build_file_tree(lines: Vec<Line>) -> FileSystemNode {
         }
     }
 
-    node
+    root
 }
 
 //TODO: create new functions to calculate what is needed for task
