@@ -3,18 +3,46 @@
 version = 3
 
 [[package]]
-name = "advent_of_code"
+name = "camino"
+version = "1.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "88ad0e1e3e88dd237a156ab9f571021b8a158caa0ae44b1968a241efb5144c1e"
+
+[[package]]
+name = "day_01"
+version = "0.1.0"
+
+[[package]]
+name = "day_02"
+version = "0.1.0"
+
+[[package]]
+name = "day_03"
+version = "0.1.0"
+
+[[package]]
+name = "day_04"
+version = "0.1.0"
+
+[[package]]
+name = "day_05"
+version = "0.1.0"
+
+[[package]]
+name = "day_06"
+version = "0.1.0"
+
+[[package]]
+name = "day_07"
+version = "0.1.0"
+
+[[package]]
+name = "day_07_take_02"
 version = "0.1.0"
 dependencies = [
  "camino",
  "nom",
 ]
-
-[[package]]
-name = "camino"
-version = "1.1.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "88ad0e1e3e88dd237a156ab9f571021b8a158caa0ae44b1968a241efb5144c1e"
 
 [[package]]
 name = "memchr"
