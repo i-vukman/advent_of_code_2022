@@ -43,16 +43,8 @@ impl FileSystemNode {
         &self,
         minimum_size: u32,
     ) -> Option<u32> {
-        let folder_size = if self.is_folder() {
-            self.sum_all_files()
-        } else {
-            0
-        };
-        let folder_size = if folder_size >= minimum_size {
-            Some(folder_size)
-        } else {
-            None
-        };
+        let folder_size = if self.is_folder() { self.sum_all_files() } else { 0 };
+        let folder_size = if folder_size >= minimum_size { Some(folder_size) } else { None };
 
         let smallest_child = self
             .children
@@ -64,13 +56,7 @@ impl FileSystemNode {
 
         match folder_size {
             Some(size) => match smallest_child {
-                Some(smallest_child_size) => {
-                    if size < smallest_child_size {
-                        Some(size)
-                    } else {
-                        Some(smallest_child_size)
-                    }
-                }
+                Some(smallest_child_size) =>  if size < smallest_child_size { Some(size) } else { Some(smallest_child_size) },
                 None => Some(size),
             },
             None => smallest_child,
