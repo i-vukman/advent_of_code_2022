@@ -98,7 +98,7 @@ impl FileSystemNode {
         self.size
     }
 
-    pub fn into_iter(n: FileSystemNodeHandle) -> Box<dyn Iterator<Item = FileSystemNodeHandle>> {
+    pub fn into_iter(n: &FileSystemNodeHandle) -> Box<dyn Iterator<Item = &FileSystemNodeHandle> + '_> {
             // clippy is wrong and should feel bad
             #[allow(clippy::needless_collect)]
             let children = n.borrow().children.values().cloned().collect::<Vec<_>>();
@@ -108,9 +108,10 @@ impl FileSystemNode {
                     children
                         .into_iter()
                         .map(|c| {
-                            FileSystemNode::into_iter(c)
+                            FileSystemNode::into_iter(&c)
                         })
-                        .flatten(),
+                        .flatten()
+                        .collect(),
                 ),
             )
     }
