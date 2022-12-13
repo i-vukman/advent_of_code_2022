@@ -1,12 +1,29 @@
+use std::collections::{HashSet};
+use std::hash::Hash;
+
 use camino::Utf8PathBuf;
-use id_tree::{Tree, Node, InsertBehavior};
 
 use crate::{terminal_output::{command::Command, entry::Entry, line::Line}};
 
-#[derive(Debug)]
+#[derive(Debug, Eq)]
 pub struct FileSystemNode {
     path: Utf8PathBuf,
     size: u64,
+    children: HashSet<FileSystemNode>,
+}
+
+impl PartialEq for FileSystemNode {
+    fn eq(&self, other: &Self) -> bool {
+        self.path == other.path && self.size == other.size
+    }
+}
+
+
+impl Hash for FileSystemNode {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        self.path.hash(state);
+        self.size.hash(state);
+    }
 }
 
 impl FileSystemNode {
@@ -23,21 +40,13 @@ impl FileSystemNode {
     }
 }
 
-#[derive(Debug)]
-pub struct FileSystemTree {
-    root: Tree<FileSystemNode>,
-}
-
-impl FileSystemTree {
-    pub fn build_from_lines(lines: Vec<Line>) -> color_eyre::Result<FileSystemTree> {
-        let mut tree = Tree::<FileSystemNode>::new();
-        let root_node = tree.insert(Node::new(FileSystemNode {
+impl FileSystemNode {
+    pub fn build_from_lines(lines: Vec<Line>) -> color_eyre::Result<FileSystemNode> {
+        let mut dir_navigation_stack = vec![FileSystemNode {
             path: "/".into(),
             size: 0,
-        }), 
-        InsertBehavior::AsRoot)?;
-
-        let mut current_node = root_node.clone();
+            children: HashSet::new(),
+        }];
 
         for line in lines {
             match line {
@@ -47,17 +56,19 @@ impl FileSystemTree {
                     }
                     Command::Cd(path) => match path.as_str() {
                         "/" => {
-                            current_node = root_node.clone();
+                            dir_navigation_stack = Self::fold_stack(dir_navigation_stack);
                         }
                         ".." => {
-                            current_node = tree.get(&current_node)?.parent().unwrap().clone();
+                            let child = dir_navigation_stack.pop().unwrap();
+                            dir_navigation_stack.last_mut().unwrap().children.insert(child);
                         }
                         _ => {
-                            let node = Node::new(FileSystemNode { 
+                            let node = FileSystemNode { 
                                 path: path, 
                                 size: 0, 
-                            });
-                            current_node = tree.insert(node, InsertBehavior::UnderNode(&current_node))?;
+                                children: HashSet::new(),
+                            };
+                            dir_navigation_stack.push(node);
                         }
                     },
                 },
@@ -66,24 +77,29 @@ impl FileSystemTree {
                         // Ignored on purpose
                     }
                     Entry::File(size, path) => {
-                        let node = Node::new(FileSystemNode { size, path });
-                        tree.insert(node, InsertBehavior::UnderNode(&current_node))?;
+                        let node = FileSystemNode { size, path, children: HashSet::new() };
+                        dir_navigation_stack.last_mut().unwrap().children.insert(node);
                     }
                 },
             }
         }
-        Ok(FileSystemTree { root: tree })
+        Ok(Self::fold_stack(dir_navigation_stack).pop().unwrap())
     }
 
-    pub fn total_size(&self, node: &Node<FileSystemNode>) -> color_eyre::Result<u64> {
-        let mut total = node.data().size;
-        for child in node.children() {
-            total += self.total_size(self.root.get(child)?)?
+    fn fold_stack(mut stack: Vec<FileSystemNode>) -> Vec<FileSystemNode> {
+        let mut root = stack.pop().unwrap();
+        while let Some(mut next) = stack.pop() {
+            next.children.insert(root);
+            root = next;
         }
-        Ok(total)
+        vec![root]
     }
 
-    pub fn traverse(&self) -> color_eyre::Result<impl Iterator<Item = &Node<FileSystemNode>>> {
-        Ok(self.root.traverse_pre_order(self.root.root_node_id().unwrap())?)
+    pub fn traverse(&self) -> Box<dyn Iterator<Item = &FileSystemNode> + '_> {
+        Box::new(
+            std::iter::once(self)
+                .chain(self.children.iter()
+                    .map(|c| c.traverse())
+                    .flatten()))
     }
 }

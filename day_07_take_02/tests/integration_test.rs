@@ -7,5 +7,7 @@ fn test_total_small_files() {
 
 #[test]
 fn test_smallest_file_to_delete() {
-    //todo!()
+    let input = include_str!("../input/day_07.txt");
+    let result = day_07_take_02::get_min_file_size_to_free_up_storage(input, 70000000, 30000000).unwrap();
+    assert_eq!(result, 1815525);
 }
