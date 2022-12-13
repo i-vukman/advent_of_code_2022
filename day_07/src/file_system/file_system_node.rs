@@ -41,7 +41,7 @@ impl FileSystemNode {
 }
 
 impl FileSystemNode {
-    pub fn build_from_lines(lines: Vec<Line>) -> color_eyre::Result<FileSystemNode> {
+    pub fn build_from_lines(lines: Vec<Line>) -> FileSystemNode {
         let mut dir_navigation_stack = vec![FileSystemNode {
             path: "/".into(),
             size: 0,
@@ -83,7 +83,7 @@ impl FileSystemNode {
                 },
             }
         }
-        Ok(Self::fold_stack(dir_navigation_stack).pop().unwrap())
+        Self::fold_stack(dir_navigation_stack).pop().unwrap()
     }
 
     fn fold_stack(mut stack: Vec<FileSystemNode>) -> Vec<FileSystemNode> {
