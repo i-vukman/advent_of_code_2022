@@ -18,7 +18,6 @@ impl PartialEq for FileSystemNode {
     }
 }
 
-
 impl Hash for FileSystemNode {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         self.path.hash(state);
