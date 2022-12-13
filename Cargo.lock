@@ -104,10 +104,6 @@ version = "0.1.0"
 [[package]]
 name = "day_07"
 version = "0.1.0"
-
-[[package]]
-name = "day_07_take_02"
-version = "0.1.0"
 dependencies = [
  "camino",
  "color-eyre",
