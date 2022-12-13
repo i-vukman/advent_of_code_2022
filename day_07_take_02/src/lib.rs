@@ -1,4 +1,4 @@
-use file_system::file_system_node::FileSystemNode;
+use file_system::file_system_node::{FileSystemTree};
 use terminal_output::line::Line;
 
 pub mod terminal_output {
@@ -14,30 +14,28 @@ pub mod file_system {
     pub mod file_system_node;
 }
 
-//TODO: accept tree reference instead
-pub fn calculate_total_size_of_dirs_smaller_than(input: &str, max_size: usize) -> usize {
+pub fn calculate_total_size_of_dirs_smaller_than(input: &str, max_size: u64) -> u64 {
     let lines = Line::parse_lines(input);
-    let file_tree = FileSystemNode::build_from_lines(lines);
-    FileSystemNode::into_iter(&file_tree)
-            .filter(|f| f.borrow().is_dir())
-            .map(|f| FileSystemNode::into_iter(f).map(|f| f.borrow().get_size()).sum::<usize>())
-            .filter(|&dir_size| dir_size <= max_size)
-            .sum::<usize>()
+    let file_tree = FileSystemTree::build_from_lines(lines).unwrap();
+    file_tree.traverse().unwrap()
+            .filter(|f| f.data().is_dir())
+            .map(|node| file_tree.total_size(node).unwrap())
+            .filter(|&size| size <= max_size)
+            .sum()
 }
 
-//TODO: accept tree reference instead
-pub fn get_min_file_size_to_free_up_storage(input: &str, storage: usize, required_free_storage: usize) -> Option<usize> {
+pub fn get_min_file_size_to_free_up_storage(input: &str, storage: u64, required_free_storage: u64) -> Option<u64> {
     let lines = Line::parse_lines(input);
-    let file_tree = FileSystemNode::build_from_lines(lines);
-    let total_size_taken = FileSystemNode::into_iter(&file_tree)
-            .map(|f| f.borrow().get_size())
-            .sum::<usize>();
+    let file_tree = FileSystemTree::build_from_lines(lines).unwrap();
+    let total_size_taken = file_tree.traverse().unwrap()
+            .map(|f| f.data().get_size())
+            .sum::<u64>();
     
     let min_dir_size = required_free_storage - (storage - total_size_taken);
 
-    FileSystemNode::into_iter(&file_tree)
-            .filter(|f| f.borrow().is_dir())
-            .map(|f| FileSystemNode::into_iter(f).map(|f| f.borrow().get_size()).sum::<usize>())
+    file_tree.traverse().unwrap()
+            .filter(|f| f.data().is_dir())
+            .map(|f| file_tree.total_size(f).unwrap())
             .filter(|&sum| sum > min_dir_size)
             .min()
 }

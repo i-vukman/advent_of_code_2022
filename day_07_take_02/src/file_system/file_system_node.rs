@@ -1,58 +1,43 @@
 use camino::Utf8PathBuf;
-use indexmap::IndexMap;
-use core::fmt;
-use std::{cell::RefCell, rc::Rc};
+use id_tree::{Tree, Node, InsertBehavior};
 
 use crate::{terminal_output::{command::Command, entry::Entry, line::Line}};
 
-type FileSystemNodeHandle = Rc<RefCell<FileSystemNode>>;
-
-#[derive(Default)]
+#[derive(Debug)]
 pub struct FileSystemNode {
-    size: usize,
-    children: IndexMap<Utf8PathBuf, FileSystemNodeHandle>,
-    parent: Option<FileSystemNodeHandle>,
-}
-
-impl fmt::Debug for FileSystemNode {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        f.debug_struct("FileSystemNode")
-            .field("size", &self.size)
-            .field("children", &self.children)
-            .finish()
-    }
-}
-
-pub struct PrettyNode<'a>(pub &'a FileSystemNodeHandle);
-
-impl<'a> fmt::Debug for PrettyNode<'a> {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        let this = self.0.borrow();
-        if this.size == 0 {
-            writeln!(f, "(dir)")?;
-        } else {
-            writeln!(f, "(file, size={})", this.size)?;
-        }
-
-        for (name, child) in &this.children {
-            // not very efficient at all, but shrug
-            for (index, line) in format!("{:?}", PrettyNode(child)).lines().enumerate() {
-                if index == 0 {
-                    writeln!(f, "{name} {line}")?;
-                } else {
-                    writeln!(f, "  {line}")?;
-                }
-            }
-        }
-
-        Ok(())
-    }
+    path: Utf8PathBuf,
+    size: u64,
 }
 
 impl FileSystemNode {
-    pub fn build_from_lines(lines: Vec<Line>) -> FileSystemNodeHandle {
-        let root_handle = Rc::new(RefCell::new(FileSystemNode::default()));
-        let mut node = root_handle.clone();
+    pub fn get_path(&self) -> String {
+        self.path.to_string()
+    }
+
+    pub fn get_size(&self) -> u64 {
+        self.size
+    }
+
+    pub fn is_dir(&self) -> bool {
+        self.size == 0
+    }
+}
+
+#[derive(Debug)]
+pub struct FileSystemTree {
+    root: Tree<FileSystemNode>,
+}
+
+impl FileSystemTree {
+    pub fn build_from_lines(lines: Vec<Line>) -> color_eyre::Result<FileSystemTree> {
+        let mut tree = Tree::<FileSystemNode>::new();
+        let root_node = tree.insert(Node::new(FileSystemNode {
+            path: "/".into(),
+            size: 0,
+        }), 
+        InsertBehavior::AsRoot)?;
+
+        let mut current_node = root_node.clone();
 
         for line in lines {
             match line {
@@ -62,57 +47,43 @@ impl FileSystemNode {
                     }
                     Command::Cd(path) => match path.as_str() {
                         "/" => {
-                            node = root_handle.clone();
+                            current_node = root_node.clone();
                         }
                         ".." => {
-                            let parent = node.borrow_mut().parent.clone().unwrap();
-                            node = parent;
+                            current_node = tree.get(&current_node)?.parent().unwrap().clone();
                         }
                         _ => {
-                            let child = node.borrow_mut().children.entry(path).or_default().clone();
-                            node = child;
+                            let node = Node::new(FileSystemNode { 
+                                path: path, 
+                                size: 0, 
+                            });
+                            current_node = tree.insert(node, InsertBehavior::UnderNode(&current_node))?;
                         }
                     },
                 },
                 Line::Entry(entry) => match entry {
-                    Entry::Dir(dir) => {
-                        let entry = node.borrow_mut().children.entry(dir).or_default().clone();
-                        entry.borrow_mut().parent = Some(node.clone());
+                    Entry::Dir(_dir) => {
+                        // Ignored on purpose
                     }
-                    Entry::File(size, file) => {
-                        let entry = node.borrow_mut().children.entry(file).or_default().clone();
-                        entry.borrow_mut().size = size as usize;
-                        entry.borrow_mut().parent = Some(node.clone());
+                    Entry::File(size, path) => {
+                        let node = Node::new(FileSystemNode { size, path });
+                        tree.insert(node, InsertBehavior::UnderNode(&current_node))?;
                     }
                 },
             }
         }
-        root_handle
+        Ok(FileSystemTree { root: tree })
     }
 
-    pub fn is_dir(&self) -> bool {
-        self.size == 0
+    pub fn total_size(&self, node: &Node<FileSystemNode>) -> color_eyre::Result<u64> {
+        let mut total = node.data().size;
+        for child in node.children() {
+            total += self.total_size(self.root.get(child)?)?
+        }
+        Ok(total)
     }
 
-    pub fn get_size(&self) -> usize {
-        self.size
-    }
-
-    pub fn into_iter(n: &FileSystemNodeHandle) -> Box<dyn Iterator<Item = &FileSystemNodeHandle> + '_> {
-            // clippy is wrong and should feel bad
-            #[allow(clippy::needless_collect)]
-            let children = n.borrow().children.values().cloned().collect::<Vec<_>>();
-
-            Box::new(
-                std::iter::once(n).chain(
-                    children
-                        .into_iter()
-                        .map(|c| {
-                            FileSystemNode::into_iter(&c)
-                        })
-                        .flatten()
-                        .collect(),
-                ),
-            )
+    pub fn traverse(&self) -> color_eyre::Result<impl Iterator<Item = &Node<FileSystemNode>>> {
+        Ok(self.root.traverse_pre_order(self.root.root_node_id().unwrap())?)
     }
 }
