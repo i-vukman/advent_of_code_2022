@@ -5,3 +5,11 @@ fn test_total_trees_from_sample() {
 
     assert_eq!(count, 21);
 }
+
+#[test]
+fn test_total_trees_from_input() {
+    let input = include_str!("../input/day_08.txt");
+    let count = day_08::count_visible_trees(input);
+
+    assert_eq!(count, 1733);
+}

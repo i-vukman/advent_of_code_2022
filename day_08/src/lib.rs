@@ -55,6 +55,7 @@ fn get_visible_inner_indexes_horizontal(trees: &Vec<Vec<u32>>) -> Vec<(usize, us
     indexes
 }
 
+//TODO: fix
 fn get_visible_inner_indexes_vertical(trees: &Vec<Vec<u32>>) -> Vec<(usize, usize)> {
     let rows = trees.len();
     let columns = trees[0].len();
@@ -77,7 +78,7 @@ fn get_visible_inner_indexes_vertical(trees: &Vec<Vec<u32>>) -> Vec<(usize, usiz
         let mut largest = trees[trees.len() - 1][j];
         for (i, &&row_value) in column_values.collect::<Vec<_>>().iter().rev().enumerate() {
             if i > 0 && i < trees.len() - 1 && j > 0 && j < columns - 1 && row_value > largest {
-                indexes.push((i, j));
+                indexes.push((trees.len() - 1 - i, j));
                 largest = row_value;
             }
         }
