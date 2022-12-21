@@ -3,7 +3,7 @@ pub fn count_visible_trees(input: &str) -> usize {
     count_visible(&trees)
 }
 
-fn parse_trees(input: &str) -> Vec<Vec<u32>> {
+pub fn parse_trees(input: &str) -> Vec<Vec<u32>> {
     let mut result = Vec::new();
 
     input
@@ -18,6 +18,61 @@ fn parse_trees(input: &str) -> Vec<Vec<u32>> {
         });
     
     result
+}
+
+pub fn calculate_the_tree_with_best_visibility(trees: &Vec<Vec<u32>>) -> u32 {
+    let mut max = 0;
+    
+    let rows = trees.len();
+    let columns = trees[0].len();
+
+    for i in 1..rows-1 {
+        for j in 1..columns-1 {
+            let current_tree = trees[i][j];
+
+            let mut up_count = 0;
+            for idx in 0..i {
+                let idx = i - idx - 1;
+                up_count += 1;
+                
+                if trees[idx][j] >= current_tree {
+                    break;
+                }
+            }
+
+            let mut down_count = 0;
+            for idx in i + 1..rows {
+                down_count += 1;
+
+                if trees[idx][j] >= current_tree {
+                    break;
+                }
+            }
+
+            let mut left_count = 0;
+            for idx in 0..j {
+                let idx = j - idx - 1;
+                left_count += 1;
+
+                if trees[i][idx] >= current_tree {
+                    break;
+                }
+            }
+
+            let mut right_count = 0;
+            for idx in j + 1..columns {
+                right_count += 1;
+
+                if trees[i][idx] >= current_tree {
+                    break;
+                }
+            }
+
+            max = max.max(up_count * down_count * left_count * right_count);
+        }
+    }
+
+    max
 }
 
 fn count_visible(trees: &Vec<Vec<u32>>) -> usize {
@@ -55,7 +110,6 @@ fn get_visible_inner_indexes_horizontal(trees: &Vec<Vec<u32>>) -> Vec<(usize, us
     indexes
 }
 
-//TODO: fix
 fn get_visible_inner_indexes_vertical(trees: &Vec<Vec<u32>>) -> Vec<(usize, usize)> {
     let rows = trees.len();
     let columns = trees[0].len();
