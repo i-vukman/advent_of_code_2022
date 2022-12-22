@@ -2,10 +2,10 @@ use nom::{IResult, combinator::{map, all_consuming}, sequence::{preceded}, bytes
 
 #[derive(Debug)]
 pub enum HeadMove {
-    Up(u64),
-    Right(u64),
-    Down(u64),
-    Left(u64),
+    Up(i64),
+    Right(i64),
+    Down(i64),
+    Left(i64),
 }
 
 impl HeadMove {
@@ -48,26 +48,26 @@ pub fn parse_move(i: &str) -> IResult<&str, HeadMove> {
          map(parse_left, Into::into)))(i)
 }
 
-struct Up(u64);
+struct Up(i64);
 
 fn parse_up(i: &str) -> IResult<&str, Up> {
-    map(preceded(tag("U "), nom::character::complete::u64), Up)(i)
+    map(preceded(tag("U "), nom::character::complete::i64), Up)(i)
 }
 
-struct Right(u64);
+struct Right(i64);
 
 fn parse_right(i: &str) -> IResult<&str, Right> {
-    map(preceded(tag("R "), nom::character::complete::u64), Right)(i)
+    map(preceded(tag("R "), nom::character::complete::i64), Right)(i)
 }
 
-struct Down(u64);
+struct Down(i64);
 
 fn parse_down(i: &str) -> IResult<&str, Down> {
-    map(preceded(tag("D "), nom::character::complete::u64), Down)(i)
+    map(preceded(tag("D "), nom::character::complete::i64), Down)(i)
 }
 
-struct Left(u64);
+struct Left(i64);
 
 fn parse_left(i: &str) -> IResult<&str, Left> {
-    map(preceded(tag("L "), nom::character::complete::u64), Left)(i)
+    map(preceded(tag("L "), nom::character::complete::i64), Left)(i)
 }
