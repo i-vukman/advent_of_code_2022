@@ -18,9 +18,7 @@ pub fn calculate_unique_position_count(moves: &[HeadMove], knot_count: usize) ->
             HeadMove::Up(offset) => for _ in 0..*offset {
                 knots[0] = (knots[0].0, knots[0].1 + 1);
                 for i in 1..knot_count {
-                    let previous = &knots[i - 1];
-                    let current = &knots[i];
-                    knots[i] = calculate_new_tail_position(previous, current);
+                    knots[i] = calculate_new_tail_position(&knots[i - 1], &knots[i]);
                 }
                 tail_positions.insert(knots.last().unwrap().clone());
             },
