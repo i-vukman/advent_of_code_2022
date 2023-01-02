@@ -17,6 +17,6 @@ fn test_unique_positions_from_input() {
     let count_for_2_knots = day_09::calculate_unique_position_count(&moves, 2);
     assert_eq!(count_for_2_knots, 6044);
 
-    let count_for_9_knots = day_09::calculate_unique_position_count(&moves, 9);
-    assert_eq!(count_for_9_knots, 2684);
+    let count_for_10_knots = day_09::calculate_unique_position_count(&moves, 10);
+    assert_eq!(count_for_10_knots, 2384);
 }
