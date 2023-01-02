@@ -4,33 +4,46 @@ use head_move::HeadMove;
 
 pub mod head_move;
 
-pub fn calculate_unique_position_count(moves: &[HeadMove]) -> usize {
-    let mut head_start_position = (0, 0);
-    let mut tail_start_position = (0, 0);
+pub fn calculate_unique_position_count(moves: &[HeadMove], knot_count: usize) -> usize {
+    if knot_count <= 0 {
+        panic!("Knot count has to be larger than 0");
+    }
+
+    let mut knots = (0..knot_count).map(|_| (0, 0)).collect::<Vec<(i64, i64)>>();
     let mut tail_positions = HashSet::new();
-    tail_positions.insert(tail_start_position);
+    tail_positions.insert((0, 0));
 
     for head_move in moves {
         match head_move {
             HeadMove::Up(offset) => for _ in 0..*offset {
-                head_start_position = (head_start_position.0, head_start_position.1 + 1);
-                tail_start_position = calculate_new_tail_position(&head_start_position, &tail_start_position);
-                tail_positions.insert(tail_start_position);
+                knots[0] = (knots[0].0, knots[0].1 + 1);
+                for i in 1..knot_count {
+                    let previous = &knots[i - 1];
+                    let current = &knots[i];
+                    knots[i] = calculate_new_tail_position(previous, current);
+                }
+                tail_positions.insert(knots.last().unwrap().clone());
             },
             HeadMove::Right(offset) => for _ in 0..*offset {
-                head_start_position = (head_start_position.0 + 1, head_start_position.1);
-                tail_start_position = calculate_new_tail_position(&head_start_position, &tail_start_position);
-                tail_positions.insert(tail_start_position);
+                knots[0] = (knots[0].0 + 1, knots[0].1);
+                for i in 1..knot_count {
+                    knots[i] = calculate_new_tail_position(&knots[i - 1], &knots[i]);
+                }
+                tail_positions.insert(knots.last().unwrap().clone());
             },
             HeadMove::Down(offset) => for _ in 0..*offset {
-                head_start_position = (head_start_position.0, head_start_position.1 - 1);
-                tail_start_position = calculate_new_tail_position(&head_start_position, &tail_start_position);
-                tail_positions.insert(tail_start_position);
+                knots[0] = (knots[0].0, knots[0].1 - 1);
+                for i in 1..knot_count {
+                    knots[i] = calculate_new_tail_position(&knots[i - 1], &knots[i]);
+                }
+                tail_positions.insert(knots.last().unwrap().clone());
             },
             HeadMove::Left(offset) => for _ in 0..*offset {
-                head_start_position = (head_start_position.0 - 1, head_start_position.1);
-                tail_start_position = calculate_new_tail_position(&head_start_position, &tail_start_position);
-                tail_positions.insert(tail_start_position);
+                knots[0] = (knots[0].0 - 1, knots[0].1);
+                for i in 1..knot_count {
+                    knots[i] =  calculate_new_tail_position(&knots[i - 1], &knots[i]);
+                }
+                tail_positions.insert(knots.last().unwrap().clone());
             }
         }
     }
