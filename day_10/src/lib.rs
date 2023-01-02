@@ -31,3 +31,61 @@ pub fn sum_signal_strenghts(instructions: &[Instruction]) -> i64 {
     }
     sum
 }
+
+pub fn build_crt_output(instructions: &[Instruction]) -> Vec<Vec<char>> {
+    let mut result = Vec::new();
+    result.push(Vec::new());
+
+    let mut current_pixel_position = -1;
+    let mut sprite_position = 1;
+
+    for instruction in instructions {
+        match instruction {
+            Instruction::Noop => {
+                current_pixel_position += 1;
+
+                if current_pixel_position >= sprite_position - 1 && current_pixel_position <= sprite_position + 1 {
+                    result.last_mut().unwrap().push('#');
+                } else {
+                    result.last_mut().unwrap().push('.');
+                }
+
+                if current_pixel_position == 39 {
+                    current_pixel_position = -1;
+                    result.push(Vec::new());
+                }
+            },
+            Instruction::AddX(value) => {
+                current_pixel_position += 1;
+                
+                if current_pixel_position >= sprite_position - 1 && current_pixel_position <= sprite_position + 1 {
+                    result.last_mut().unwrap().push('#');
+                } else {
+                    result.last_mut().unwrap().push('.');
+                }
+
+                if current_pixel_position == 39 {
+                    current_pixel_position = -1;
+                    result.push(Vec::new());
+                }
+                
+                current_pixel_position += 1;
+                
+                if current_pixel_position >= sprite_position - 1 && current_pixel_position <= sprite_position + 1 {
+                    result.last_mut().unwrap().push('#');
+                } else {
+                    result.last_mut().unwrap().push('.');
+                }
+                
+                if current_pixel_position == 39 {
+                    current_pixel_position = -1;
+                    result.push(Vec::new());
+                }
+
+                sprite_position += value;
+            }
+        }
+    }
+
+    result
+}
