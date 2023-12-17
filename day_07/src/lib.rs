@@ -1,4 +1,4 @@
-use file_system::file_system_node::{FileSystemNode};
+use file_system::file_system_node::FileSystemNode;
 use terminal_output::line::Line;
 
 pub mod terminal_output {

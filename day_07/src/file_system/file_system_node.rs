@@ -1,9 +1,9 @@
-use std::collections::{HashSet};
+use std::collections::HashSet;
 use std::hash::Hash;
 
 use camino::Utf8PathBuf;
 
-use crate::{terminal_output::{command::Command, entry::Entry, line::Line}};
+use crate::terminal_output::{command::Command, entry::Entry, line::Line};
 
 #[derive(Debug, Eq)]
 pub struct FileSystemNode {
